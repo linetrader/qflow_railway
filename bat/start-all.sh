@@ -9,8 +9,8 @@ fi
 
 echo "[start-all] starting processes (web + mining + level + sweep)..."
 
-# 웹(Next) – 포트는 Next가 자체 결정
-npm run start & WEB_PID=$!
+# 웹(Next) – 플랫폼이 주입한 $PORT 사용(없으면 3000)
+npm run start:web & WEB_PID=$!
 
 # 워커들 (러너)
 npm run start:runner:mining & MINING_PID=$!
@@ -27,7 +27,7 @@ cleanup() {
 
 trap cleanup INT TERM
 
-# 어떤 자식이든 먼저 종료되면 나머지 정리하고 비정상 종료(=App Runner 재시작 유도)
+# 어떤 자식이든 먼저 종료되면 나머지 정리 후 종료
 wait -n || true
 echo "[start-all] one child exited;"
 cleanup
