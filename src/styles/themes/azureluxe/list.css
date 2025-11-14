@@ -1,0 +1,78 @@
+/* theme/azureluxe/list.css */
+@layer components {
+  /* ───────────────── list: vertical flex container ───────────────── */
+  [data-theme="azureluxe"] .list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important; /* rows are separated by divider or border */
+    background: var(--surface-1) !important;
+
+    /* 변경: 외곽선 얇은 파란색 */
+    border: 1px solid var(--color-primary-600) !important;
+
+    border-radius: var(--radius-xl) !important;
+    overflow: hidden !important;
+  }
+  /* 선택: hover 시 외곽선 살짝 더 선명 */
+  [data-theme="azureluxe"] .list:hover {
+    border-color: var(--color-primary) !important;
+  }
+
+  /* optional divider between rows */
+  [data-theme="azureluxe"] .list.divide > * + * {
+    border-top: 1px solid var(--color-primary-600) !important;
+  }
+
+  /* ───────────────── list-row: horizontal grid row ───────────────── */
+  [data-theme="azureluxe"] .list-row {
+    display: grid !important;
+    grid-auto-flow: column !important; /* children laid out horizontally */
+    grid-auto-columns: max-content !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.625rem 0.75rem !important;
+    background: var(--surface-1) !important;
+    transition: background-color 140ms ease !important;
+  }
+  [data-theme="azureluxe"] .list-row:hover {
+    background: var(--surface-2) !important;
+  }
+
+  /* 첫 번째를 제외한 row의 '윗쪽'에만 파란선 */
+  [data-theme="azureluxe"] .list-row + .list-row {
+    border-top: 1px solid var(--color-primary-600) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+  }
+
+  /* grow: 남는 공간을 채우는 컬럼 (텍스트 영역 등에 사용) */
+  [data-theme="azureluxe"] .list-row > .list-col-grow {
+    min-width: 0 !important; /* allow text truncation */
+    width: auto !important;
+    justify-self: stretch !important;
+    grid-auto-columns: 1fr !important;
+  }
+
+  /* wrap: 다음 줄(전체 폭)로 내려가 상세/메타 정보에 사용 */
+  [data-theme="azureluxe"] .list-row > .list-col-wrap {
+    grid-column: 1 / -1 !important; /* span full width */
+    justify-self: stretch !important;
+  }
+
+  /* ───────────────── Chip (HomeView에서 사용) ───────────────── */
+  [data-theme="azureluxe"] .chip {
+    display: inline-flex !important;
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 9999px !important;
+    background: var(--surface-3) !important;
+    color: var(--fg-strong) !important;
+    border: 1px solid var(--line-soft) !important;
+    font-weight: 700 !important;
+    font-size: 0.75rem !important;
+    line-height: 1 !important;
+  }
+}

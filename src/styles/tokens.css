@@ -1,0 +1,12 @@
+/* src/styles/tokens.css */
+/* 전역 라운드·보더 스케일 등(필요 시 조정) */
+:root {
+  --rounded-box: 1rem;
+  --rounded-btn: 0.75rem;
+  --rounded-badge: 1.5rem;
+}
+
+/* 특정 테마 예외를 최소화하고 싶으면 여기서 변수로 관리 */
+/* 예) [data-theme="halloween"]에서 대비 강화 등을 하려면 아래처럼:*/
+
+/* [data-theme="halloween"] {} */

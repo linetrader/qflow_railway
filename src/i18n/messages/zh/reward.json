@@ -1,0 +1,42 @@
+{
+  "errors": {
+    "requestFailed": "请求失败",
+    "network": "网络错误"
+  },
+  "toast": {
+    "refetched": "已刷新奖励数据。"
+  },
+  "labels": {
+    "totalCount": "共 {count}{plus} 条"
+  },
+  "loading": {
+    "loading": "加载中…"
+  },
+  "summary": {
+    "usdt": { "title": "USDT 奖励" },
+    "dft": { "title": "DFT 奖励" },
+    "codes": {
+      "total": "总计",
+      "today": "今天",
+      "yesterday": "昨天"
+    },
+    "calculatedAt": "计算基准"
+  },
+  "history": {
+    "title": "奖励历史",
+    "head": {
+      "title": "条目",
+      "date": "时间",
+      "amount": "金额"
+    },
+    "modes": {
+      "ALL": "全部",
+      "USDT": "USDT",
+      "DFT": "DFT"
+    },
+    "empty": "没有可显示的记录。",
+    "loadMore": "加载更多",
+    "loading": "加载中…",
+    "allLoaded": "所有记录已加载。"
+  }
+}

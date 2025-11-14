@@ -1,0 +1,88 @@
+/* src/styles/components/feedback/alert/_index.css */
+@layer components {
+  /* ===== Base (색상 없음: 변수만) ===== */
+  .alert {
+    /* rounded-box + transition-shadow duration-200 */
+    border-radius: var(--rounded-box, 1rem);
+    transition: box-shadow 200ms ease;
+
+    /* 프레임 */
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--alert-border-color);
+    background-color: var(--alert-bg);
+    color: var(--alert-fg);
+    background-clip: padding-box;
+    box-shadow: inset 0 0 0 1px var(--alert-border-color);
+  }
+
+  .alert:focus-within {
+    /* outline-none ring-offset-0 대체 */
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+
+    /* 포커스 링 */
+    box-shadow: inset 0 0 0 1px var(--alert-border-color),
+      0 0 0 2px var(--alert-focus-ring);
+  }
+
+  /* ===== Slots ===== */
+  .alert-title {
+    /* text-base font-semibold leading-none tracking-tight */
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.005em;
+  }
+
+  .alert-body {
+    /* p-4 sm:p-5 */
+    padding: 1rem;
+  }
+  @media (min-width: 640px) {
+    .alert-body {
+      padding: 1.25rem;
+    }
+  }
+
+  .alert-actions {
+    /* mt-3 flex items-center gap-2 */
+    margin-top: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* ===== Variants ===== */
+  .alert-border {
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--alert-border-color);
+    box-shadow: inset 0 0 0 1px var(--alert-border-color);
+  }
+
+  .alert-dash {
+    border-style: dashed;
+    border-width: 1px;
+    border-color: var(--alert-border-color);
+  }
+
+  .alert-side {
+    /* md:flex md:flex-row md:items-center md:gap-4 */
+    /* 기본은 block 흐름 유지 */
+  }
+  @media (min-width: 768px) {
+    .alert-side {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem; /* gap-4 */
+    }
+  }
+}
+
+/* 테마는 마지막에 로드 */
+@import "./caramellatte.css";
+@import "./halloween.css";

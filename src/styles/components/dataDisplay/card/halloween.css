@@ -1,0 +1,17 @@
+/* src/styles/components/dataDisplay/card/halloween.css */
+@layer components {
+  [data-theme="halloween"] .card {
+    --card-border-color: rgba(255, 255, 255, 0.7); /* 외곽선 */
+    --card-focus-ring: rgba(255, 255, 255, 0.22); /* 포커스 링 */
+
+    background: linear-gradient(
+      180deg,
+      rgba(12, 12, 16, 0.98) 0%,
+      rgba(12, 12, 16, 0.94) 100%
+    );
+  }
+
+  [data-theme="halloween"] .card-title {
+    color: hsl(var(--a));
+  }
+}

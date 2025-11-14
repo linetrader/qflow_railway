@@ -1,0 +1,48 @@
+{
+  "title": "ウォレット",
+  "loading": {
+    "loading": "読み込み中",
+    "loadingWallet": "ウォレット情報を読み込んでいます…"
+  },
+  "error": {
+    "title": "エラー",
+    "loginReqTitle": "ログインが必要です",
+    "loginReqDesc": "ウォレット情報を表示するにはログインしてください。",
+    "unknown": "不明なエラーが発生しました。"
+  },
+  "balances": {
+    "title": "保有資産",
+    "assets": {
+      "USDT": "テザー",
+      "QAI": "QuantixAI",
+      "DFT": "DeepFlow"
+    }
+  },
+  "transfer": {
+    "title": "入金・出金",
+    "deposit": "入金",
+    "withdraw": "出金"
+  },
+  "sell": {
+    "title": "DFT 売却登録",
+    "hold": "保有: {amount} DFT",
+    "qty": "数量 (DFT)",
+    "placeholderQty": "例: 1000",
+    "unit": "単価 (USDT)",
+    "total": "合計 (USDT)",
+    "submit": "売却登録",
+    "invalid": "正しい数量を入力し、保有数量の範囲内で登録してください。",
+    "toastOkTitle": "売却登録",
+    "toastOkDesc": "売却登録が完了しました。（サンプル表示）"
+  },
+  "history": {
+    "title": "入出金履歴",
+    "head": ["内訳", "日時", "金額", "状態"],
+    "empty": "表示する履歴がありません。",
+    "recentMore": "直近 {count}+件",
+    "recent": "直近 {count}件",
+    "loading": "読み込み中…",
+    "more": "さらに表示",
+    "allLoaded": "すべての履歴を読み込みました。"
+  }
+}

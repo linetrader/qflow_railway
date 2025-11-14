@@ -1,0 +1,20 @@
+{
+  "header": {
+    "back": "戻る",
+    "preparing": "入金アドレスを準備しています…",
+    "errorRetry": "再試行",
+    "network": "ネットワーク: {name}"
+  },
+  "qr": {
+    "generating": "QR を生成しています…",
+    "none": "QR なし",
+    "preparingAddr": "アドレスを準備中…",
+    "noAddr": "アドレスなし",
+    "hint": "ウォレットアプリで QR をスキャンしてアドレスを入力できます。"
+  },
+  "address": {
+    "label": "ウォレットアドレス",
+    "copied": "アドレスをコピーしました。",
+    "clipboardUnsupported": "クリップボードがサポートされていません。アドレスを手動でコピーしてください。"
+  }
+}

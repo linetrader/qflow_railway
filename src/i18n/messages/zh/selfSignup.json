@@ -1,0 +1,30 @@
+{
+  "title": "自助注册",
+  "submit": "注册",
+  "loading": "加载中…",
+  "loginRequired": {
+    "title": "需要登录",
+    "desc": "为固定您的推荐码，本页面仅在登录状态下可访问。",
+    "cta": "前往登录"
+  },
+  "note": {
+    "fixedRef": "本页面的推荐码会 <b>自动固定</b> 为 <b>{username}</b> 的代码（<code>{ref}</code>）。"
+  },
+  "errors": {
+    "unexpected": "意外响应（HTTP {status}）",
+    "network": "网络错误",
+    "usernameTaken": "用户名已被占用。",
+    "emailTaken": "邮箱已被占用。",
+    "referrerNotFound": "未找到推荐人。",
+    "sponsorNotFound": "未找到赞助人。",
+    "countryCodeInvalid": "国家代码必须为2个字母（如：KR、US）。",
+    "countryNotFound": "未找到该国家代码。",
+    "validation": "请检查输入内容。",
+    "server": "发生服务器错误。"
+  },
+  "toast": {
+    "success": { "title": "注册完成", "desc": "账号已成功创建。" },
+    "fail": { "title": "注册失败", "desc": "请检查输入内容。" },
+    "network": { "title": "网络错误", "desc": "请稍后重试。" }
+  }
+}

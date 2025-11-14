@@ -1,0 +1,19 @@
+@layer components {
+  [data-theme="halloween"] .alert {
+    --alert-border-color: rgba(255, 255, 255, 0.7);
+    --alert-focus-ring: rgba(255, 255, 255, 0.22);
+    --alert-bg: rgba(18, 18, 24, 0.96);
+    --alert-fg: white;
+
+    background-image: linear-gradient(
+      180deg,
+      rgba(12, 12, 16, 0.98) 0%,
+      rgba(12, 12, 16, 0.94) 100%
+    );
+    background-blend-mode: normal;
+  }
+
+  [data-theme="halloween"] .alert-title {
+    color: hsl(var(--a));
+  }
+}

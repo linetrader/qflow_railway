@@ -1,0 +1,38 @@
+{
+  "header": {
+    "back": "戻る",
+    "title": "出金 (Withdraw)"
+  },
+  "panel": {
+    "priceFeeTitle": "価格と出金手数料のご案内",
+    "fee": "出金手数料: {fee}%",
+    "totalVal": "参考評価額: 約 {value} USDT"
+  },
+  "cards": {
+    "sectionTitle": "トークン別 出金申請",
+    "hold": "保有: {amount} {token}",
+    "amountLabel": "数量",
+    "amountPlaceholder": "数量を入力",
+    "submitTitleInvalid": "有効な数量を入力してください。",
+    "submit": "出金申請",
+    "est": "概算: 約 {value} USDT",
+    "invalid": "有効な数量を入力し、保有数量の範囲内で入力してください。"
+  },
+  "loading": {
+    "title": "出金",
+    "loading": "読み込み中",
+    "loadingDetail": "ウォレット / 価格情報を読み込んでいます…"
+  },
+  "error": {
+    "title": "出金",
+    "badge": "エラー",
+    "retry": "再試行"
+  },
+  "toast": {
+    "processing": "処理中です。しばらくお待ちください。",
+    "withdrawFailTitle": "出金に失敗しました",
+    "withdrawOkTitle": "出金申請 完了",
+    "withdrawOkDesc": "出金申請を受け付けました。（保留）",
+    "networkErrorTitle": "ネットワークエラー"
+  }
+}

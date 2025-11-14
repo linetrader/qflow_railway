@@ -1,0 +1,25 @@
+// prisma/schema/AdminChainConfig.prisma
+model AdminChainConfig {
+  id             String  @id // 예: "BSC_MAINNET", "BSC_TESTNET"
+  rpcUrl         String
+  usdtAddress    String
+  dftAddress     String? // ← 추가: DFT 토큰 주소(없을 수 있음)
+  confirmations  Int     @default(15)
+  scanBatch      Int     @default(2000)
+  bnbMinForSweep Decimal @default(0.001) @db.Decimal(38, 18)
+  isEnabled      Boolean @default(true)
+
+  // ▼ 추가: 밸런스 전용 러너 설정(체인별)
+  balanceConcurrency Int     @default(25) // 기존 CONCURRENCY_DEFAULT
+  balanceLogEveryN   Int     @default(200) // 기존 LOG_EVERY_N_DEFAULT
+  sweepIfUsdtGtZero  Boolean @default(false) // 기존 SWEEP_IF_USDT_GT_ZERO
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SystemKV {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}

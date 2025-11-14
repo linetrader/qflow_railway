@@ -1,0 +1,50 @@
+// prisma/schema/ReferralPlan.prisma
+model ReferralPlan {
+  id       String  @id @default(cuid())
+  name     String  @unique
+  isActive Boolean @default(true)
+
+  // 패키지별 어떤 플랜을 쓸지 매핑
+  packageMappings PackageReferralPlan[]
+
+  // 레벨별 퍼센트
+  levels ReferralPlanLevel[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ReferralPlanLevel {
+  id      String  @id @default(cuid())
+  planId  String
+  level   Int // 1,2,3,...
+  percent Decimal @db.Decimal(5, 2) // 예: 3.50 (%)
+
+  plan ReferralPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([planId, level]) // 플랜 내 레벨 유일
+  @@index([planId, level])
+}
+
+// 특정 패키지에 어떤 추천 플랜을 적용할지 연결
+model PackageReferralPlan {
+  id        String @id @default(cuid())
+  packageId String
+  planId    String
+
+  // (선택) 향후 플랜 교체를 위해 유효기간 컬럼을 두고 싶다면 추가:
+  // effectiveFrom DateTime @default(now())
+  // effectiveTo   DateTime?
+
+  package Package      @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  plan    ReferralPlan @relation(fields: [planId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([packageId]) // 패키지당 1개 플랜(단일 운영) 가정
+  @@index([planId])
+}

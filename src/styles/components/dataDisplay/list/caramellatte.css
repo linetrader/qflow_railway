@@ -1,0 +1,20 @@
+/* src/styles/components/dataDisplay/list/caramellatte.css */
+@layer components {
+  [data-theme="caramellatte"] .list {
+    /* 외곽선 색상: stats와 동일 톤(0.60) */
+    --list-border-color: rgba(87, 71, 46, 0.6);
+
+    /* 내부 구분선도 동일 톤으로 맞춤 (기존 0.72 → 0.60) */
+    --list-divider-color: rgba(100, 71, 46, 0.6);
+
+    /* 포커스/인너스트로크 기존 값 유지 */
+    --list-focus-ring: rgba(87, 71, 46, 0.12);
+    --list-inner-stroke: rgba(87, 71, 46, 0.16);
+  }
+
+  /* 리스트 내부 구분선 두께 1px로 통일 (기존 2px → 1px) */
+  [data-theme="caramellatte"] .list.divide > .list-row + .list-row {
+    border-top-width: 1px;
+    border-top-color: var(--list-divider-color);
+  }
+}

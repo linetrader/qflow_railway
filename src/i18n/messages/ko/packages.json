@@ -1,0 +1,75 @@
+{
+  "errors": {
+    "fetchFailed": "패키지 정보 조회 실패(HTTP {status})",
+    "network": "네트워크 오류",
+    "unknown": "알 수 없는 오류"
+  },
+  "loading": {
+    "fetching": "패키지 정보를 불러오는 중…",
+    "retry": "다시 시도"
+  },
+  "purchase": {
+    "title": "패키지 구매",
+    "cards": {
+      "usdtBalance": "내 USDT 잔액",
+      "totalUSD": "합계 금액",
+      "estQai": "예상 QAI 수량",
+      "estNoPrice": "예상 수량 (시세 없음)"
+    },
+    "input": {
+      "label": "{name} 수량 입력",
+      "placeholder": "수량"
+    },
+    "warn": {
+      "insufficient": "잔액 부족: 필요 {need} USDT / 보유 {have} USDT — 초과 {over} USDT"
+    },
+    "cta": {
+      "buy": "구매",
+      "processing": "처리 중…",
+      "title": "구매",
+      "titleDisabled": "수량을 입력하세요."
+    },
+    "rateLine": {
+      "label": "* 환산 단가:",
+      "value": "1 QAI = {price} USDT",
+      "none": "QAI 시세 없음 (가격 데이터 필요)"
+    },
+    "notice": "구입하신 패키지는 QAI 코인으로 전환되며, 서비스 종료 후 인출이 가능합니다."
+  },
+  "toast": {
+    "cannotBuy": {
+      "title": "구매 불가",
+      "insufficient": "잔액이 부족합니다. USDT를 충전하거나 수량을 조정하세요.",
+      "inputQty": "수량을 입력하세요."
+    },
+    "summary": {
+      "title": "구매 요약",
+      "line": "- {name}: {units}개 × ${price} = ${subtotal}",
+      "totalWithRate": "- 총액: ${total} (≈ {estQai} QAI @ {price} USDT/QAI)",
+      "totalNoRate": "- 총액: ${total} (QAI 시세 없음)"
+    },
+    "success": { "title": "구매 완료" },
+    "fail": {
+      "title": "구매 실패",
+      "http": "구매 실패(HTTP {status})",
+      "generic": "구매 중 오류가 발생했습니다."
+    }
+  },
+  "history": {
+    "title": "나의 패키지 구매내역",
+    "totalBadge": "총액: ${total}",
+    "head": {
+      "title": "내역",
+      "date": "일시",
+      "amount": "금액",
+      "status": "상태"
+    },
+    "row": {
+      "title": "{kind} 패키지 · {units}개"
+    },
+    "empty": "표시할 내역이 없습니다.",
+    "loadMore": "더 보기",
+    "loading": "불러오는 중…",
+    "allLoaded": "모든 내역을 불러왔습니다."
+  }
+}

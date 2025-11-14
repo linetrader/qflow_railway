@@ -1,0 +1,75 @@
+{
+  "errors": {
+    "fetchFailed": "Lấy thông tin gói thất bại (HTTP {status})",
+    "network": "Lỗi mạng",
+    "unknown": "Lỗi không xác định"
+  },
+  "loading": {
+    "fetching": "Đang tải thông tin gói…",
+    "retry": "Thử lại"
+  },
+  "purchase": {
+    "title": "Mua gói",
+    "cards": {
+      "usdtBalance": "Số dư USDT",
+      "totalUSD": "Tổng số tiền",
+      "estQai": "QAI ước tính",
+      "estNoPrice": "Ước tính (không có giá)"
+    },
+    "input": {
+      "label": "Nhập số lượng cho {name}",
+      "placeholder": "Số lượng"
+    },
+    "warn": {
+      "insufficient": "Số dư không đủ: Cần {need} USDT / Có {have} USDT — Thiếu {over} USDT"
+    },
+    "cta": {
+      "buy": "Mua",
+      "processing": "Đang xử lý…",
+      "title": "Mua",
+      "titleDisabled": "Hãy nhập số lượng."
+    },
+    "rateLine": {
+      "label": "* Tỷ giá quy đổi:",
+      "value": "1 QAI = {price} USDT",
+      "none": "Không có giá QAI (cần dữ liệu giá)"
+    },
+    "notice": "Gói đã mua sẽ được chuyển đổi sang QAI và có thể rút sau khi dịch vụ kết thúc."
+  },
+  "toast": {
+    "cannotBuy": {
+      "title": "Không thể mua",
+      "insufficient": "Số dư không đủ. Nạp thêm USDT hoặc điều chỉnh số lượng.",
+      "inputQty": "Hãy nhập số lượng."
+    },
+    "summary": {
+      "title": "Tóm tắt mua",
+      "line": "- {name}: {units} × ${price} = ${subtotal}",
+      "totalWithRate": "- Tổng: ${total} (≈ {estQai} QAI @ {price} USDT/QAI)",
+      "totalNoRate": "- Tổng: ${total} (Không có giá QAI)"
+    },
+    "success": { "title": "Mua thành công" },
+    "fail": {
+      "title": "Mua thất bại",
+      "http": "Mua thất bại (HTTP {status})",
+      "generic": "Đã xảy ra lỗi khi mua."
+    }
+  },
+  "history": {
+    "title": "Lịch sử mua gói",
+    "totalBadge": "Tổng: ${total}",
+    "head": {
+      "title": "Nội dung",
+      "date": "Thời gian",
+      "amount": "Số tiền",
+      "status": "Trạng thái"
+    },
+    "row": {
+      "title": "Gói {kind} · {units}"
+    },
+    "empty": "Không có mục nào để hiển thị.",
+    "loadMore": "Xem thêm",
+    "loading": "Đang tải…",
+    "allLoaded": "Đã tải tất cả."
+  }
+}

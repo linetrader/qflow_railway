@@ -1,0 +1,197 @@
+/* theme/azureluxe/badge.css */
+@layer components {
+  /* === Palette bridge for badge (azureluxe) === */
+  :root[data-theme="azureluxe"] {
+    /* base tokens already exist in casd.css; here we add missing ones for badge variants */
+    --badge-neutral: rgba(71, 85, 105, 1) !important; /* ≈ slate-600 */
+    --badge-primary: var(--color-primary) !important;
+    --badge-secondary: rgba(100, 116, 139, 1) !important; /* ≈ slate-500 */
+    --badge-accent: rgba(16, 24, 40, 1) !important; /* deep navy */
+    --badge-info: rgba(59, 130, 246, 1) !important; /* blue-500 */
+    --badge-success: var(--success) !important;
+    --badge-warning: var(--warning) !important;
+    --badge-error: var(--error) !important;
+  }
+
+  /* ───────────────── Base ───────────────── */
+  [data-theme="azureluxe"] .badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    height: 1.6rem !important;
+    padding: 0 0.55rem !important;
+    font-size: 0.74rem !important;
+    font-weight: 600 !important;
+    border-radius: 9999px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    border: 1px solid rgba(34, 119, 255, 0.24) !important; /* default outline */
+    background: rgba(34, 119, 255, 0.08) !important; /* default soft bg */
+    color: var(--fg-strong) !important;
+  }
+
+  /* ───────────────── Style modifiers ───────────────── */
+  /* outline style */
+  [data-theme="azureluxe"] .badge.badge-outline {
+    background: transparent !important;
+    border: 1px solid var(--line-strong) !important;
+    color: var(--fg) !important;
+  }
+
+  /* dash outline style */
+  [data-theme="azureluxe"] .badge.badge-dash {
+    background: transparent !important;
+    border: 1px dashed var(--line-strong) !important;
+    color: var(--fg) !important;
+  }
+
+  /* soft style: subtle tinted background, thin tint border */
+  [data-theme="azureluxe"] .badge.badge-soft {
+    border: 1px solid rgba(34, 119, 255, 0.18) !important;
+    background: rgba(34, 119, 255, 0.1) !important;
+    color: var(--fg-strong) !important;
+  }
+
+  /* ghost style: no background, no border, text only */
+  [data-theme="azureluxe"] .badge.badge-ghost {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--fg) !important;
+  }
+
+  /* ───────────────── Color variants ───────────────── */
+  /* Neutral */
+  [data-theme="azureluxe"] .badge.badge-neutral {
+    border-color: rgba(71, 85, 105, 0.28) !important;
+    background: rgba(71, 85, 105, 0.1) !important;
+    color: var(--badge-neutral) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-neutral.badge-outline {
+    background: transparent !important;
+    border-color: var(--badge-neutral) !important;
+    color: var(--badge-neutral) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-neutral.badge-ghost {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--badge-neutral) !important;
+  }
+
+  /* Primary */
+  [data-theme="azureluxe"] .badge.badge-primary {
+    border-color: rgba(34, 119, 255, 0.3) !important;
+    background: rgba(34, 119, 255, 0.12) !important;
+    color: var(--badge-primary) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-primary.badge-outline {
+    background: transparent !important;
+    border-color: var(--badge-primary) !important;
+    color: var(--badge-primary) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-primary.badge-ghost {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--badge-primary) !important;
+  }
+
+  /* Secondary */
+  [data-theme="azureluxe"] .badge.badge-secondary {
+    border-color: rgba(100, 116, 139, 0.3) !important;
+    background: rgba(100, 116, 139, 0.12) !important;
+    color: var(--badge-secondary) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-secondary.badge-outline {
+    background: transparent !important;
+    border-color: var(--badge-secondary) !important;
+    color: var(--badge-secondary) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-secondary.badge-ghost {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--badge-secondary) !important;
+  }
+
+  /* Accent */
+  [data-theme="azureluxe"] .badge.badge-accent {
+    border-color: rgba(16, 24, 40, 0.3) !important;
+    background: rgba(16, 24, 40, 0.1) !important;
+    color: var(--badge-accent) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-accent.badge-outline {
+    background: transparent !important;
+    border-color: var(--badge-accent) !important;
+    color: var(--badge-accent) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-accent.badge-ghost {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--badge-accent) !important;
+  }
+
+  /* Info */
+  [data-theme="azureluxe"] .badge.badge-info {
+    border-color: rgba(59, 130, 246, 0.3) !important;
+    background: rgba(59, 130, 246, 0.12) !important;
+    color: var(--badge-info) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-info.badge-outline {
+    background: transparent !important;
+    border-color: var(--badge-info) !important;
+    color: var(--badge-info) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-info.badge-ghost {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--badge-info) !important;
+  }
+
+  /* Success */
+  [data-theme="azureluxe"] .badge.badge-success {
+    border-color: rgba(12, 180, 120, 0.3) !important;
+    background: rgba(12, 180, 120, 0.12) !important;
+    color: var(--badge-success) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-success.badge-outline {
+    background: transparent !important;
+    border-color: var(--badge-success) !important;
+    color: var(--badge-success) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-success.badge-ghost {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--badge-success) !important;
+  }
+
+  /* Warning */
+  [data-theme="azureluxe"] .badge.badge-warning {
+    border-color: rgba(245, 158, 11, 0.3) !important;
+    background: rgba(245, 158, 11, 0.14) !important;
+    color: var(--badge-warning) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-warning.badge-outline {
+    background: transparent !important;
+    border-color: var(--badge-warning) !important;
+    color: var(--badge-warning) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-warning.badge-ghost {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--badge-warning) !important;
+  }
+
+  /* Error */
+  [data-theme="azureluxe"] .badge.badge-error {
+    border-color: rgba(220, 38, 38, 0.3) !important;
+    background: rgba(220, 38, 38, 0.12) !important;
+    color: var(--badge-error) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-error.badge-outline {
+    background: transparent !important;
+    border-color: var(--badge-error) !important;
+    color: var(--badge-error) !important;
+  }
+  [data-theme="azureluxe"] .badge.badge-error.badge-ghost {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--badge-error) !important;
+  }
+}

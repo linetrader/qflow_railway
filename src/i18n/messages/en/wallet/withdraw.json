@@ -1,0 +1,38 @@
+{
+  "header": {
+    "back": "Back",
+    "title": "Withdraw"
+  },
+  "panel": {
+    "priceFeeTitle": "Prices & Withdrawal Fees",
+    "fee": "Withdrawal fee: {fee}%",
+    "totalVal": "Estimated total value: ≈ {value} USDT"
+  },
+  "cards": {
+    "sectionTitle": "Withdraw by Token",
+    "hold": "Holding: {amount} {token}",
+    "amountLabel": "Amount",
+    "amountPlaceholder": "Enter amount",
+    "submitTitleInvalid": "Please enter a valid amount.",
+    "submit": "Request Withdraw",
+    "est": "Estimated value: ≈ {value} USDT",
+    "invalid": "Enter a valid amount within your balance."
+  },
+  "loading": {
+    "title": "Withdraw",
+    "loading": "Loading",
+    "loadingDetail": "Loading wallet / price information…"
+  },
+  "error": {
+    "title": "Withdraw",
+    "badge": "Error",
+    "retry": "Retry"
+  },
+  "toast": {
+    "processing": "Processing your request. Please wait.",
+    "withdrawFailTitle": "Withdrawal Failed",
+    "withdrawOkTitle": "Withdrawal Submitted",
+    "withdrawOkDesc": "Your withdrawal request has been received. (pending)",
+    "networkErrorTitle": "Network Error"
+  }
+}

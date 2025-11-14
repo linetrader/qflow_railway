@@ -1,0 +1,42 @@
+{
+  "errors": {
+    "requestFailed": "요청에 실패했습니다",
+    "network": "네트워크 오류"
+  },
+  "toast": {
+    "refetched": "리워드 데이터를 새로 불러왔습니다."
+  },
+  "labels": {
+    "totalCount": "총 {count}{plus}건"
+  },
+  "loading": {
+    "loading": "불러오는 중…"
+  },
+  "summary": {
+    "usdt": { "title": "USDT 리워드" },
+    "dft": { "title": "DFT 리워드" },
+    "codes": {
+      "total": "전체",
+      "today": "오늘",
+      "yesterday": "어제"
+    },
+    "calculatedAt": "계산 기준"
+  },
+  "history": {
+    "title": "리워드 히스토리",
+    "head": {
+      "title": "내역",
+      "date": "일시",
+      "amount": "금액"
+    },
+    "modes": {
+      "ALL": "전체",
+      "USDT": "USDT",
+      "DFT": "DFT"
+    },
+    "empty": "표시할 내역이 없습니다.",
+    "loadMore": "더 보기",
+    "loading": "불러오는 중…",
+    "allLoaded": "모든 내역을 불러왔습니다."
+  }
+}

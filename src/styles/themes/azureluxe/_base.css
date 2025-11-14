@@ -1,0 +1,8 @@
+/* theme/azureluxe/base.css */
+@layer base {
+  html[data-theme="azureluxe"] .bg-base-200 {
+    /* AzureLuxe primary tint */
+    background-color: rgba(255, 235, 59, 0.12) !important; /* #2277FF @10% */
+    /* color: #0b1220 !important;  필요 시 대비 조정 */
+  }
+}

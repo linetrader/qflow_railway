@@ -1,0 +1,38 @@
+{
+  "header": {
+    "back": "返回",
+    "title": "提现 (Withdraw)"
+  },
+  "panel": {
+    "priceFeeTitle": "价格与提现手续费",
+    "fee": "提现手续费：{fee}%",
+    "totalVal": "参考总估值：≈ {value} USDT"
+  },
+  "cards": {
+    "sectionTitle": "按代币发起提现",
+    "hold": "持有：{amount} {token}",
+    "amountLabel": "数量",
+    "amountPlaceholder": "请输入数量",
+    "submitTitleInvalid": "请输入有效数量。",
+    "submit": "提交提现",
+    "est": "估算折合：≈ {value} USDT",
+    "invalid": "请输入有效数量，并在持有数量范围内操作。"
+  },
+  "loading": {
+    "title": "提现",
+    "loading": "加载中",
+    "loadingDetail": "正在加载钱包 / 价格信息…"
+  },
+  "error": {
+    "title": "提现",
+    "badge": "错误",
+    "retry": "重试"
+  },
+  "toast": {
+    "processing": "正在处理，请稍候。",
+    "withdrawFailTitle": "提现失败",
+    "withdrawOkTitle": "提现申请已提交",
+    "withdrawOkDesc": "提现申请已受理。（等待处理）",
+    "networkErrorTitle": "网络错误"
+  }
+}

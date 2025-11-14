@@ -1,0 +1,16 @@
+/* src/styles/components/dataDisplay/table/halloween.css */
+@layer components {
+  [data-theme="halloween"] .table {
+    --table-border-color: rgba(255, 255, 255, 0.36);
+    --table-focus-ring: rgba(255, 255, 255, 0.22);
+
+    --table-header-bg: rgba(20, 20, 26, 0.96);
+    --table-header-fg: white;
+    --table-stripe-bg: rgba(255, 255, 255, 0.06);
+    --table-row-hover-bg: rgba(255, 255, 255, 0.08);
+  }
+
+  [data-theme="halloween"] .table-title {
+    color: hsl(var(--a));
+  }
+}

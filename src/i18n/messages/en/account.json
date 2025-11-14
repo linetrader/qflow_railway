@@ -1,0 +1,112 @@
+{
+  "page": {
+    "title": "My Account",
+    "loading": "Loading profile…",
+    "badgeLoading": "Loading",
+    "badgeError": "Error",
+    "errors": {
+      "http": "Failed to load profile (HTTP {status})",
+      "generic": "Failed to load profile"
+    }
+  },
+  "info": {
+    "title": "Account Info",
+    "username": "Username",
+    "email": "Email",
+    "name": "Name",
+    "country": "Country",
+    "fields": {
+      "username": "Username",
+      "email": "Email",
+      "name": "Name",
+      "country": "Country"
+    }
+  },
+  "referral": {
+    "title": "Sign-up Referral Link",
+    "badge": "Referrer",
+    "copyToastTitle": { "success": "Copied", "error": "Copy failed" },
+    "copyToastDesc": {
+      "success": "The referral link has been copied to the clipboard.",
+      "error": "Failed to access the clipboard."
+    }
+  },
+  "otp": {
+    "title": "Google OTP",
+    "status": { "enabled": "Enabled", "disabled": "Disabled" },
+    "scan": "Scan with Google Authenticator",
+    "secretLabel": "Secret (backup)",
+    "codeLabel": "Authenticator code (6 digits)",
+    "register": "Register OTP",
+    "note": "After registration, keep your backup codes in a safe place.",
+    "dialog": {
+      "title": "OTP Verification",
+      "desc": "Enter the 6-digit code shown in your authenticator app.",
+      "inputLabel": "Verification code",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "confirming": "Confirming…",
+      "need6": "Please enter a 6-digit code"
+    },
+    "toast": {
+      "successTitle": "Success",
+      "errorTitle": "Error",
+      "successDesc": "OTP has been enabled.",
+      "errorDesc": "Failed to register OTP."
+    },
+    "errors": {
+      "init": "Failed to initialize OTP",
+      "initHttp": "Failed to initialize OTP (HTTP {status})",
+      "registerHttp": "Failed to register OTP (HTTP {status})"
+    }
+  },
+  "wallet": {
+    "title": "Withdrawal Wallet Address",
+    "status": { "registered": "Registered", "unregistered": "Not registered" },
+    "addressLabel": "Wallet address",
+    "placeholder": "Address starting with 0x",
+    "invalid": "Invalid address format (EVM 0x + 40 hex) or checksum mismatch.",
+    "register": "Register",
+    "copyTitle": { "success": "Copied", "error": "Copy failed" },
+    "copyDesc": {
+      "success": "The withdrawal address has been copied to the clipboard.",
+      "error": "Failed to access the clipboard."
+    },
+    "errors": {
+      "needOtp": "Please enable Google OTP on your account first.",
+      "invalid": "The wallet address is invalid.",
+      "otpWrong": "The OTP code is incorrect.",
+      "http": "Save failed (HTTP {status})"
+    },
+    "toast": {
+      "success": "Withdrawal wallet address has been saved."
+    }
+  },
+  "password": {
+    "title": "Change Password",
+    "badge": "Security",
+    "current": "Current password",
+    "new": "New password",
+    "newConfirm": "Confirm new password",
+    "mismatch": "Passwords do not match.",
+    "submit": "Change password",
+    "submitting": "Working…",
+    "toast": {
+      "successTitle": "Success",
+      "errorTitle": "Error",
+      "errorFallback": "Failed to change password",
+      "successDesc": "Your password has been changed."
+    },
+    "errors": {
+      "validation": "Validation failed",
+      "http": "Change failed (HTTP {status})"
+    },
+    "rules": {
+      "len": "8~18 characters",
+      "letter": "Contains letters",
+      "digit": "Contains digits",
+      "upper": "At least one uppercase letter",
+      "symbol": "At least one symbol"
+    }
+  }
+}

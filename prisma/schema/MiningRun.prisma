@@ -1,0 +1,103 @@
+// prisma/schema/MiningRun.prisma
+model MiningSchedule {
+  id       String  @id @default(cuid())
+  name     String  @unique
+  isActive Boolean @default(true)
+
+  // 실행 방식
+  kind MiningScheduleKind @default(INTERVAL)
+
+  // --- INTERVAL 모드용 ---
+  intervalMinutes Int?
+
+  // --- DAILY 모드용 ---
+  /**
+   * /**
+   * /**
+   * /**
+   * /** "매일 특정 시각" (현지 타임존 기준) – 0~1439 (예: 09:30 => 9*60+30=570)
+   */
+  dailyAtMinutes Int?
+  /**
+   * 타임존 IANA 이름 (예: "Asia/Seoul")
+   */
+  timezone       String? @default("Asia/Seoul")
+  /**
+   * 요일 필터(bitmask): 일(1)<<0, 월<<1, ... 토<<6
+   * 예: 매일=127, 평일=62(월~금), 주말=65(일+토)
+   */
+  daysOfWeekMask Int?    @default(127)
+
+  lastRunAt DateTime?
+  nextRunAt DateTime?
+
+  policyId String
+  policy   MiningPolicy @relation(fields: [policyId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  runs MiningRun[]
+
+  @@index([isActive, kind, intervalMinutes])
+  @@index([isActive, kind, dailyAtMinutes, timezone])
+}
+
+model MiningRun {
+  id         String @id @default(cuid())
+  scheduleId String
+  policyId   String
+
+  schedule MiningSchedule @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
+  policy   MiningPolicy   @relation(fields: [policyId], references: [id], onDelete: Restrict)
+
+  snapCompanyPct        Decimal @db.Decimal(5, 2)
+  snapSelfPct           Decimal @db.Decimal(5, 2)
+  snapMlmPct            Decimal @db.Decimal(5, 2)
+  snapMlmReferralPlanId String
+  snapLevelBonusPlanId  String
+
+  status     MiningRunStatus @default(PENDING)
+  startedAt  DateTime?
+  finishedAt DateTime?
+  note       String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  payouts MiningPayout[]
+
+  @@index([status, createdAt])
+}
+
+model MiningPayout {
+  id    String @id @default(cuid())
+  runId String
+
+  sourceUserId String
+  sourceUser   User   @relation("MiningSourceUser", fields: [sourceUserId], references: [id], onDelete: Cascade)
+
+  beneficiaryUserId String
+  beneficiaryUser   User   @relation("MiningBeneficiaryUser", fields: [beneficiaryUserId], references: [id], onDelete: Cascade)
+
+  kind      MiningRewardKind
+  amountDFT Decimal          @db.Decimal(38, 18)
+
+  packageId        String?
+  baseDailyDft     Decimal? @db.Decimal(38, 18)
+  userNodeQuantity Int?
+
+  refLevel   Int?
+  awardLevel Int?
+  splitCount Int?
+
+  run       MiningRun @relation(fields: [runId], references: [id], onDelete: Cascade)
+  createdAt DateTime  @default(now())
+
+  // ▼ History 역참조(옵션)
+  histories UserRewardHistory[]
+
+  @@index([beneficiaryUserId, createdAt])
+  @@index([sourceUserId, createdAt])
+  @@index([kind, createdAt])
+}

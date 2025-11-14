@@ -1,0 +1,99 @@
+// prisma/schema/MiningPolicy.prisma
+
+/// --- 먼저 자식 모델들 선언 ---
+
+model MlmReferralPlanLevel {
+  id      String  @id @default(cuid())
+  planId  String
+  level   Int
+  percent Decimal @db.Decimal(5, 2)
+
+  plan MlmReferralPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([planId, level])
+  @@index([planId, level])
+}
+
+model LevelBonusItem {
+  id      String  @id @default(cuid())
+  planId  String
+  level   Int
+  percent Decimal @db.Decimal(5, 2)
+
+  plan LevelBonusPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([planId, level])
+  @@index([planId, level])
+}
+
+/// --- 부모 모델들 ---
+
+model MlmReferralPlan {
+  id       String  @id @default(cuid())
+  name     String  @unique
+  isActive Boolean @default(true)
+
+  levels MlmReferralPlanLevel[]
+
+  // 역방향: MiningPolicy.mlmReferralPlan
+  policies MiningPolicy[] @relation("PolicyToMlmPlan")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model LevelBonusPlan {
+  id       String  @id @default(cuid())
+  name     String  @unique
+  isActive Boolean @default(true)
+
+  items LevelBonusItem[]
+
+  // 역방향: MiningPolicy.levelBonusPlan
+  policies MiningPolicy[] @relation("PolicyToLevelPlan")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+/// --- 최상위: 정책 ---
+
+model MiningPolicy {
+  id       String  @id @default(cuid())
+  name     String  @unique
+  isActive Boolean @default(true)
+
+  companyPct Decimal @db.Decimal(5, 2)
+  selfPct    Decimal @db.Decimal(5, 2)
+  mlmPct     Decimal @db.Decimal(5, 2)
+
+  // 회사 수령자(필수 지정) — 역방향: User.miningPoliciesAsCompany
+  companyUserId String
+  companyUser   User   @relation("MiningCompanyUser", fields: [companyUserId], references: [id], onDelete: Restrict)
+
+  // MLM 추천 플랜 — 역방향: MlmReferralPlan.policies
+  mlmReferralPlanId String
+  mlmReferralPlan   MlmReferralPlan @relation("PolicyToMlmPlan", fields: [mlmReferralPlanId], references: [id], onDelete: Restrict)
+
+  // 레벨 보너스 플랜 — 역방향: LevelBonusPlan.policies
+  levelBonusPlanId String
+  levelBonusPlan   LevelBonusPlan @relation("PolicyToLevelPlan", fields: [levelBonusPlanId], references: [id], onDelete: Restrict)
+
+  effectiveFrom DateTime  @default(now())
+  effectiveTo   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 역방향: MiningSchedule.policy, MiningRun.policy
+  schedules MiningSchedule[]
+  runs      MiningRun[]
+
+  @@index([isActive, effectiveFrom])
+}

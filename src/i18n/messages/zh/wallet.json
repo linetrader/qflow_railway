@@ -1,0 +1,48 @@
+{
+  "title": "钱包",
+  "loading": {
+    "loading": "加载中",
+    "loadingWallet": "正在加载钱包信息…"
+  },
+  "error": {
+    "title": "错误",
+    "loginReqTitle": "需要登录",
+    "loginReqDesc": "请先登录以查看钱包信息。",
+    "unknown": "发生未知错误。"
+  },
+  "balances": {
+    "title": "持有资产",
+    "assets": {
+      "USDT": "泰达币",
+      "QAI": "QuantixAI",
+      "DFT": "DeepFlow"
+    }
+  },
+  "transfer": {
+    "title": "充值与提现",
+    "deposit": "充值",
+    "withdraw": "提现"
+  },
+  "sell": {
+    "title": "DFT 挂单出售",
+    "hold": "持有: {amount} DFT",
+    "qty": "数量 (DFT)",
+    "placeholderQty": "例：1000",
+    "unit": "单价 (USDT)",
+    "total": "合计 (USDT)",
+    "submit": "提交出售",
+    "invalid": "请输入有效数量，并在持有范围内进行操作。",
+    "toastOkTitle": "出售登记",
+    "toastOkDesc": "出售登记已完成。（示例提示）"
+  },
+  "history": {
+    "title": "充值 / 提现记录",
+    "head": ["明细", "时间", "金额", "状态"],
+    "empty": "暂无可显示的记录。",
+    "recentMore": "最近 {count}+ 条",
+    "recent": "最近 {count} 条",
+    "loading": "加载中…",
+    "more": "加载更多",
+    "allLoaded": "已加载全部记录。"
+  }
+}

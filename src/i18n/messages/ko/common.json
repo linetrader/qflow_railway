@@ -1,0 +1,87 @@
+{
+  "app": { "name": "QFlow" },
+  "nav": {
+    "wallet": "지갑",
+    "packages": "패키지",
+    "home": "홈",
+    "reward": "리워드",
+    "selfSignup": "회원 가입",
+    "signup": "회원 가입",
+    "homeAria": "홈으로 이동",
+    "bottomAria": "하단 내비게이션"
+  },
+  "auth": {
+    "login": "로그인",
+    "signup": "회원가입",
+    "logout": "로그아웃"
+  },
+  "menu": {
+    "open": "메뉴 열기",
+    "drawerAria": "사이드 메뉴",
+    "title": "메뉴",
+    "settings": "환경설정",
+    "account": "계정",
+    "public": {
+      "overview": "프로젝트 소개",
+      "announcement": "공지사항",
+      "event": "이벤트",
+      "help": "고객센터"
+    },
+    "private": {
+      "group": "매출 그룹 현황",
+      "ranking": "매출 랭킹 현황",
+      "account": "계정 설정 현황"
+    }
+  },
+  "header": {
+    "menu": "메뉴",
+    "close": "닫기",
+    "admin": "관리",
+    "login": "로그인",
+    "signup": "회원가입",
+    "account": "내 계정",
+    "settings": "환경설정"
+  },
+  "footer": {
+    "tabs": {
+      "wallet": "지갑",
+      "pkg": "패키지",
+      "home": "홈",
+      "reward": "리워드",
+      "selfSignup": "회원 가입"
+    }
+  },
+  "actions": {
+    "save": "저장",
+    "cancel": "취소",
+    "close": "닫기",
+    "copy": "복사",
+    "confirm": "확인",
+    "back": "뒤로"
+  },
+  "status": {
+    "loading": "불러오는 중…",
+    "error": "오류",
+    "success": "완료"
+  },
+  "hints": {
+    "copied": "복사됨",
+    "copyFailed": "복사 실패",
+    "copiedDesc": "클립보드에 복사되었습니다.",
+    "copyFailedDesc": "클립보드 접근에 실패했습니다."
+  },
+  "theme": {
+    "toggleAria": "테마 전환"
+  },
+  "admin": {
+    "title": "관리"
+  },
+  "account": {
+    "my": "내 계정"
+  },
+  "errors": {
+    "network": "네트워크 오류",
+    "validation": "검증 실패",
+    "unknown": "알 수 없는 오류"
+  }
+}

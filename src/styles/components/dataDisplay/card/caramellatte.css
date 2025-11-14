@@ -1,0 +1,17 @@
+/* src/styles/components/dataDisplay/card/caramellatte.css */
+@layer components {
+  [data-theme="caramellatte"] .card {
+    --card-border-color: rgba(87, 71, 46, 0.6); /* 외곽선 */
+    --card-focus-ring: rgba(87, 71, 46, 0.12); /* 포커스 링 */
+
+    background: linear-gradient(
+      180deg,
+      rgba(255, 253, 248, 0.92) 0%,
+      rgba(255, 255, 255, 0.96) 100%
+    );
+  }
+
+  [data-theme="caramellatte"] .card-title {
+    color: hsl(var(--p) / 0.9);
+  }
+}

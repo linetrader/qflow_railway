@@ -1,0 +1,35 @@
+{
+  "announcements": {
+    "title": "Announcements",
+    "seeAll": "View all",
+    "empty": "No announcements to display.",
+    "badge": { "notice": "Notice" }
+  },
+  "assets": {
+    "title": "Assets",
+    "usdt": { "name": "Tether" },
+    "qai": { "name": "QuantixAI" },
+    "dft": { "name": "DeepFlow" }
+  },
+  "reward": {
+    "title": "Rewards",
+    "recentCount": "Recent {count} items",
+    "empty": "No reward history."
+  },
+  "purchase": {
+    "title": "Purchase history",
+    "recentCount": "Recent {count} items",
+    "empty": "No purchase history.",
+    "unitPriceInline": "({price} each)"
+  },
+  "table": {
+    "head": {
+      "subject": "Item",
+      "date": "Date",
+      "amount": "Amount"
+    }
+  },
+  "loading": { "homeData": "Loading data…" },
+  "error": { "generic": "An error occurred: {message}" },
+  "guest": { "notice": "Sign in to view details." }
+}

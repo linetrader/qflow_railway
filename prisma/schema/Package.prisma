@@ -1,0 +1,15 @@
+// prisma/schema/Package.prisma
+model Package {
+  id             String  @id @default(cuid())
+  name           String  @unique
+  price          Decimal @db.Decimal(38, 18)
+  dailyDftAmount Decimal @db.Decimal(38, 18) // DFT 하루 채굴수량
+
+  userPackages        UserPackage[]
+  userPackageHistory  UserPackageHistory[]
+  ReferralCommission  ReferralCommission[]
+  PackageReferralPlan PackageReferralPlan?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

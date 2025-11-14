@@ -1,0 +1,38 @@
+{
+  "header": {
+    "back": "뒤로 가기",
+    "title": "출금 (Withdraw)"
+  },
+  "panel": {
+    "priceFeeTitle": "가격 & 출금 수수료 안내",
+    "fee": "출금 수수료: {fee}%",
+    "totalVal": "내 보유 총 평가액(참고): ≈ {value} USDT"
+  },
+  "cards": {
+    "sectionTitle": "토큰별 출금 신청",
+    "hold": "보유: {amount} {token}",
+    "amountLabel": "수량",
+    "amountPlaceholder": "수량 입력",
+    "submitTitleInvalid": "유효한 수량을 입력하세요.",
+    "submit": "출금 신청",
+    "est": "개당 토큰 가격 기준 ≈ {value} USDT",
+    "invalid": "유효한 수량을 입력하고 보유 수량 이내로 입력하세요."
+  },
+  "loading": {
+    "title": "출금",
+    "loading": "불러오는 중",
+    "loadingDetail": "지갑/가격 정보를 불러오는 중…"
+  },
+  "error": {
+    "title": "출금",
+    "badge": "오류",
+    "retry": "다시 시도"
+  },
+  "toast": {
+    "processing": "요청 처리 중입니다. 잠시만 기다려 주세요.",
+    "withdrawFailTitle": "출금 실패",
+    "withdrawOkTitle": "출금 신청 완료",
+    "withdrawOkDesc": "출금 신청이 접수되었습니다. (대기)",
+    "networkErrorTitle": "네트워크 오류"
+  }
+}

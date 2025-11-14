@@ -1,0 +1,35 @@
+// --- enum 먼저 선언 ---
+enum UserLevelBonusStatus {
+  PAID
+  // 필요 시 확장:
+  // REVERSED
+  // CANCELED
+}
+
+// --- 최소 스키마 (정책 고정용) ---
+model UserLevelBonus {
+  id               String   @id @default(cuid())
+
+  // 지급 수령자 / 원인 정보
+  userId           String              // 수령자
+  sourceUserId     String              // 구매자
+  sourceHistoryId  String              // userPackageHistory.id
+
+  // 워터폴 구간
+  capLevel         Int                 // 해당 지급의 cap 레벨
+  amountUSD        Decimal  @db.Decimal(38,18)
+
+  // 결제/거래 연결 (생성시 바로 PAID로 기록)
+  status           UserLevelBonusStatus @default(PAID)
+  paidWalletTxId   String              // WalletTx.id (DEPOSIT)
+  paidAt           DateTime            // WalletTx.createdAt
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // 중복 지급 방지: 동일 구매(sourceHistoryId) + 동일 capLevel + 동일 수령자 유니크
+  @@unique([sourceHistoryId, userId, capLevel], map: "ulb_hist_user_level_uk")
+
+  // 키셋 페이징용 인덱스 (createdAt desc, id desc 로 사용)
+  @@index([userId, createdAt, id], map: "ulb_user_ts_id_desc")
+}

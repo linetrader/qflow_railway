@@ -1,0 +1,25 @@
+{
+  "header": {
+    "title": "公告"
+  },
+  "actions": {
+    "refresh": "刷新",
+    "home": "首页"
+  },
+  "table": {
+    "colTitle": "标题",
+    "colPublishedAt": "发布日期"
+  },
+  "messages": {
+    "loadingList": "加载中…",
+    "emptyList": "尚未发布任何公告。",
+    "errorPrefix": "错误:"
+  },
+  "detail": {
+    "title": "查看公告",
+    "close": "关闭",
+    "loading": "加载中…",
+    "publishedLabel": "发布",
+    "placeholder": "从列表中选择公告后将显示在此处。"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "title": "自分のレベルとグループ合計",
+  "badges": {
+    "myLevel": "現在のレベル: {level}"
+  },
+  "labels": {
+    "levelUnknown": "不明",
+    "group": "グループ",
+    "salesVolumeUSDT": "売上合計（USDT）",
+    "dailyAllowanceDFT": "1日許容量（DFT）"
+  },
+  "columns": {
+    "group": "グループ",
+    "salesVolumeUSDT": "売上合計（USDT）",
+    "dailyAllowanceDFT": "1日許容量（DFT）",
+    "updatedAt": "更新日時"
+  },
+  "notes": {
+    "groupNo": "* groupNo は直下ラインのスロット番号を表します。"
+  },
+  "loading": {
+    "badge": "読み込み中…",
+    "ariaProgress": "読み込み中"
+  },
+  "empty": {
+    "noData": "グループ要約データがありません。",
+    "noGroups": "表示できるグループ要約がありません。"
+  },
+  "toast": {
+    "errorTitle": "エラー"
+  },
+  "errors": {
+    "fetchFailed": "チーム情報の取得に失敗しました（HTTP {status}）",
+    "network": "ネットワークエラー"
+  },
+  "aria": {
+    "mobileList": "グループ要約リスト"
+  }
+}

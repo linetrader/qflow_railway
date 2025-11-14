@@ -1,0 +1,70 @@
+// prisma/schema/User.prisma
+model User {
+  id           String @id @default(cuid())
+  username     String @unique
+  email        String @unique
+  name         String
+  passwordHash String
+
+  countryCode String?  @db.Char(2)
+  country     Country? @relation(fields: [countryCode], references: [code], onDelete: SetNull, onUpdate: NoAction)
+
+  // 추천/후원
+  referrerId String
+  referrer   User   @relation("UserReferrer", fields: [referrerId], references: [id], onDelete: Restrict)
+  referred   User[] @relation("UserReferrer")
+
+  sponsorId String?
+  sponsor   User?   @relation("UserSponsor", fields: [sponsorId], references: [id], onDelete: SetNull)
+  sponsees  User[]  @relation("UserSponsor")
+
+  // 내 정보
+  referralCode     String  @unique
+  level            Int     @default(0)
+  googleOtpEnabled Boolean @default(false)
+  googleOtpSecret  String?
+
+  wallet        UserWallet?
+  rewardSummary UserRewardSummary?
+
+  userPackages       UserPackage[]
+  userPackageHistory UserPackageHistory[]
+  walletTxs          WalletTx[]
+  rewardHistory      UserRewardHistory[]
+
+  referralEdges ReferralEdge[]
+  uplineEdges   ReferralEdge[] @relation("EdgeChild")
+
+  referralGroups ReferralGroupSummary[]
+  referralStats  UserReferralStats?
+
+  commissionsAsBuyer       ReferralCommission[] @relation("CommissionBuyer")
+  commissionsAsBeneficiary ReferralCommission[] @relation("CommissionBeneficiary")
+
+  miningPoliciesAsCompany    MiningPolicy[] @relation("MiningCompanyUser")
+  miningPayoutsAsSource      MiningPayout[] @relation("MiningSourceUser")
+  miningPayoutsAsBeneficiary MiningPayout[] @relation("MiningBeneficiaryUser")
+
+  // ✅ 역방향 관계에 relation name을 명시적으로 일치시킴
+  authoredPosts    Post[]              @relation("PostAuthor")
+  authoredComments Comment[]           @relation("CommentAuthor")
+  assignedSupports SupportAssignment[] @relation("TicketAssignee")
+
+  // CenterManager 역방향 (1:1)
+  managedCenter     CenterManager?       @relation("CenterManager_User")
+
+  // UserCenterLink 역방향
+  centerLinksAsUser   UserCenterLink[]   @relation("UserCenterLink_User")
+  centerLinksAsCenter UserCenterLink[]   @relation("UserCenterLink_Center")
+
+  // CenterCommission 역방향
+  centerCommissionsAsCenter CenterCommission[] @relation("CenterCommission_CenterUser")
+  centerCommissionsAsBuyer  CenterCommission[] @relation("CenterCommission_BuyerUser")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([referrerId])
+  @@index([sponsorId])
+  @@index([countryCode])
+}

@@ -1,0 +1,35 @@
+{
+  "announcements": {
+    "title": "Thông báo",
+    "seeAll": "Xem tất cả",
+    "empty": "Không có thông báo nào.",
+    "badge": { "notice": "Thông báo" }
+  },
+  "assets": {
+    "title": "Tài sản",
+    "usdt": { "name": "Tether" },
+    "qai": { "name": "QuantixAI" },
+    "dft": { "name": "DeepFlow" }
+  },
+  "reward": {
+    "title": "Phần thưởng",
+    "recentCount": "{count} mục gần đây",
+    "empty": "Chưa có lịch sử phần thưởng."
+  },
+  "purchase": {
+    "title": "Lịch sử mua",
+    "recentCount": "{count} mục gần đây",
+    "empty": "Chưa có lịch sử mua.",
+    "unitPriceInline": "({price} /mỗi)"
+  },
+  "table": {
+    "head": {
+      "subject": "Hạng mục",
+      "date": "Ngày",
+      "amount": "Số tiền"
+    }
+  },
+  "loading": { "homeData": "Đang tải dữ liệu…" },
+  "error": { "generic": "Đã xảy ra lỗi: {message}" },
+  "guest": { "notice": "Hãy đăng nhập để xem chi tiết." }
+}

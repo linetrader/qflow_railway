@@ -1,0 +1,6 @@
+// prisma/schema/Country.prisma
+model Country {
+  code  String @id @db.Char(2) // ISO 3166-1 alpha-2
+  name  String
+  users User[] // ← 역방향(1:N의 N측 컬렉션)
+}

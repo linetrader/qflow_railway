@@ -1,0 +1,115 @@
+{
+  "page": {
+    "title": "Tài khoản của tôi",
+    "loading": "Đang tải hồ sơ…",
+    "badgeLoading": "Đang tải",
+    "badgeError": "Lỗi",
+    "errors": {
+      "http": "Không thể tải hồ sơ (HTTP {status})",
+      "generic": "Không thể tải hồ sơ"
+    }
+  },
+  "info": {
+    "title": "Thông tin tài khoản",
+    "username": "Tên đăng nhập",
+    "email": "Email",
+    "name": "Họ tên",
+    "country": "Quốc gia",
+    "fields": {
+      "username": "Tên đăng nhập",
+      "email": "Email",
+      "name": "Họ tên",
+      "country": "Quốc gia"
+    }
+  },
+  "referral": {
+    "title": "Liên kết giới thiệu đăng ký",
+    "badge": "Người giới thiệu",
+    "copyToastTitle": {
+      "success": "Đã sao chép",
+      "error": "Sao chép thất bại"
+    },
+    "copyToastDesc": {
+      "success": "Liên kết đã được sao chép vào bộ nhớ tạm.",
+      "error": "Không thể truy cập bộ nhớ tạm."
+    }
+  },
+  "otp": {
+    "title": "Google OTP",
+    "status": { "enabled": "Đã bật", "disabled": "Chưa bật" },
+    "scan": "Quét bằng Google Authenticator",
+    "secretLabel": "Mã bí mật (sao lưu)",
+    "codeLabel": "Mã ứng dụng (6 số)",
+    "register": "Đăng ký OTP",
+    "note": "Sau khi đăng ký, hãy giữ mã sao lưu ở nơi an toàn.",
+    "dialog": {
+      "title": "Xác thực OTP",
+      "desc": "Nhập mã 6 số hiển thị trong ứng dụng xác thực.",
+      "inputLabel": "Mã xác thực",
+      "cancel": "Hủy",
+      "confirm": "Xác nhận",
+      "confirming": "Đang xác nhận…",
+      "need6": "Vui lòng nhập mã 6 số"
+    },
+    "toast": {
+      "successTitle": "Thành công",
+      "errorTitle": "Lỗi",
+      "successDesc": "OTP đã được bật.",
+      "errorDesc": "Đăng ký OTP thất bại."
+    },
+    "errors": {
+      "init": "Khởi tạo OTP thất bại",
+      "initHttp": "Khởi tạo OTP thất bại (HTTP {status})",
+      "registerHttp": "Đăng ký OTP thất bại (HTTP {status})"
+    }
+  },
+  "wallet": {
+    "title": "Địa chỉ ví rút tiền",
+    "status": { "registered": "Đã đăng ký", "unregistered": "Chưa đăng ký" },
+    "addressLabel": "Địa chỉ ví",
+    "placeholder": "Địa chỉ bắt đầu bằng 0x",
+    "invalid": "Địa chỉ không hợp lệ (EVM 0x + 40 hex) hoặc sai checksum.",
+    "register": "Đăng ký",
+    "copyTitle": { "success": "Đã sao chép", "error": "Sao chép thất bại" },
+    "copyDesc": {
+      "success": "Địa chỉ ví rút tiền đã được sao chép.",
+      "error": "Không thể truy cập bộ nhớ tạm."
+    },
+    "errors": {
+      "needOtp": "Hãy bật Google OTP cho tài khoản trước.",
+      "invalid": "Địa chỉ ví không hợp lệ.",
+      "otpWrong": "Mã OTP không đúng.",
+      "http": "Lưu thất bại (HTTP {status})"
+    },
+    "toast": {
+      "success": "Đã lưu địa chỉ ví rút tiền."
+    }
+  },
+  "password": {
+    "title": "Đổi mật khẩu",
+    "badge": "Bảo mật",
+    "current": "Mật khẩu hiện tại",
+    "new": "Mật khẩu mới",
+    "newConfirm": "Xác nhận mật khẩu mới",
+    "mismatch": "Mật khẩu không khớp.",
+    "submit": "Đổi mật khẩu",
+    "submitting": "Đang xử lý…",
+    "toast": {
+      "successTitle": "Thành công",
+      "errorTitle": "Lỗi",
+      "errorFallback": "Đổi mật khẩu thất bại",
+      "successDesc": "Mật khẩu đã được thay đổi."
+    },
+    "errors": {
+      "validation": "Xác thực thất bại",
+      "http": "Thay đổi thất bại (HTTP {status})"
+    },
+    "rules": {
+      "len": "8~18 ký tự",
+      "letter": "Chứa chữ cái",
+      "digit": "Chứa chữ số",
+      "upper": "Ít nhất 1 chữ hoa",
+      "symbol": "Ít nhất 1 ký tự đặc biệt"
+    }
+  }
+}

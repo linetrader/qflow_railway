@@ -1,0 +1,39 @@
+{
+  "title": "나의 레벨 및 그룹 합계",
+  "badges": {
+    "myLevel": "나의 레벨: {level}"
+  },
+  "labels": {
+    "levelUnknown": "레벨 정보 없음",
+    "group": "Group",
+    "salesVolumeUSDT": "매출 합계 (USDT)",
+    "dailyAllowanceDFT": "일일 허용 DFT"
+  },
+  "columns": {
+    "group": "그룹",
+    "salesVolumeUSDT": "매출 합계 (USDT)",
+    "dailyAllowanceDFT": "일일 허용 DFT",
+    "updatedAt": "업데이트"
+  },
+  "notes": {
+    "groupNo": "* groupNo는 내 직대 하위 라인의 슬롯 번호입니다."
+  },
+  "loading": {
+    "badge": "불러오는 중…",
+    "ariaProgress": "불러오는 중"
+  },
+  "empty": {
+    "noData": "그룹 요약 데이터가 없습니다.",
+    "noGroups": "표시할 그룹 요약이 없습니다."
+  },
+  "toast": {
+    "errorTitle": "오류"
+  },
+  "errors": {
+    "fetchFailed": "팀 정보 조회 실패(HTTP {status})",
+    "network": "네트워크 오류"
+  },
+  "aria": {
+    "mobileList": "그룹 요약 목록"
+  }
+}

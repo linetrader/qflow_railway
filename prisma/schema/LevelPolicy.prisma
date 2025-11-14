@@ -1,0 +1,75 @@
+// prisma/schema/LevelPolicy.prisma
+model LevelPolicy {
+  id       String  @id @default(cuid())
+  name     String  @unique
+  isActive Boolean @default(true)
+
+  levels LevelPolicyLevel[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model LevelPolicyLevel {
+  id       String @id @default(cuid())
+  policyId String
+  level    Int // 승급 목표 레벨 (예: 1,2,...)
+
+  policy LevelPolicy @relation(fields: [policyId], references: [id], onDelete: Cascade)
+
+  // 하나의 레벨에 여러 "요건 그룹"(OR)이 있을 수 있고,
+  // 각 그룹 안의 여러 "요건"(AND)을 모두 만족하면 해당 그룹 충족.
+  groups LevelRequirementGroup[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([policyId, level])
+  @@index([policyId, level])
+}
+
+model LevelRequirementGroup {
+  id      String @id @default(cuid())
+  levelId String
+  ordinal Int    @default(1) // UI/정렬용
+
+  level LevelPolicyLevel @relation(fields: [levelId], references: [id], onDelete: Cascade)
+
+  requirements LevelRequirement[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([levelId, ordinal])
+}
+
+model LevelRequirement {
+  id      String               @id @default(cuid())
+  groupId String
+  kind    LevelRequirementKind
+
+  // 금액형 요건: NODE_AMOUNT_MIN, GROUP_SALES_AMOUNT_MIN 에서 사용 (USD)
+  amount Decimal? @db.Decimal(38, 2)
+
+  // 카운트형 요건: DIRECT_REFERRAL_COUNT_MIN, DIRECT_DOWNLINE_LEVEL_COUNT_MIN 에서 사용
+  count Int?
+
+  // 특정 레벨 카운트 요건: DIRECT_DOWNLINE_LEVEL_COUNT_MIN 에서 사용
+  targetLevel Int?
+
+  // ─────────────────────────────────────────────
+  // ⬇︎ "추천수" 요건에 부가 조건: 추천인은 모두 '노드'를 보유해야 함
+  // ─────────────────────────────────────────────
+  /// true 이면, DIRECT_REFERRAL_COUNT_MIN 평가 시 "노드 보유" 추천인만 유효
+  referralRequireNodeOwned Boolean? @default(false)
+
+  /// (선택) 추천인의 최소 '노드 금액(USD)' 조건. 지정 시 해당 금액 이상 노드 보유 추천인만 카운트.
+  referralNodeAmountMin Decimal? @db.Decimal(38, 2)
+
+  group LevelRequirementGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([groupId, kind])
+}

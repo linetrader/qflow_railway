@@ -1,0 +1,64 @@
+@layer components {
+  /* ===== Base (색상 없음) ===== */
+  .card {
+    /* 프레임: 테마 변수만 참조 */
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--card-border-color);
+    background-clip: padding-box;
+    box-shadow: inset 0 0 0 1px var(--card-border-color);
+
+    /* 레이아웃 기본값 */
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--rounded-box, 1rem);
+
+    /* 반응형 여백/갭 변수 */
+    --card-px: 1rem; /* 16px */
+    --card-py: 1rem;
+    --card-gap: 0.75rem; /* 12px */
+  }
+
+  .card:focus-within {
+    outline: none;
+    box-shadow: inset 0 0 0 1px var(--card-border-color),
+      0 0 0 2px var(--card-focus-ring);
+  }
+
+  /* ===== Slots ===== */
+  .card-title {
+    display: block;
+    margin-bottom: 0.75rem; /* 제목-본문 간격 */
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.005em; /* 가독성 */
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-gap);
+    padding: var(--card-py) var(--card-px);
+  }
+
+  /* ===== Responsive density ===== */
+  @media (min-width: 640px) {
+    .card {
+      --card-px: 1.25rem; /* 20px */
+      --card-py: 1.25rem;
+      --card-gap: 0.875rem; /* 14px */
+    }
+  }
+  @media (min-width: 1024px) {
+    .card {
+      --card-px: 1.5rem; /* 24px */
+      --card-py: 1.25rem; /* 20px */
+      --card-gap: 1rem; /* 16px */
+    }
+  }
+}
+
+/* 테마는 마지막에 로드 */
+@import "./caramellatte.css";
+@import "./halloween.css";

@@ -1,0 +1,87 @@
+{
+  "app": { "name": "QFlow" },
+  "nav": {
+    "wallet": "钱包",
+    "packages": "套餐",
+    "home": "首页",
+    "reward": "奖励",
+    "selfSignup": "自助注册",
+    "signup": "注册",
+    "homeAria": "前往首页",
+    "bottomAria": "底部导航"
+  },
+  "auth": {
+    "login": "登录",
+    "signup": "注册",
+    "logout": "退出登录"
+  },
+  "menu": {
+    "open": "打开菜单",
+    "drawerAria": "侧边菜单",
+    "title": "菜单",
+    "settings": "设置",
+    "account": "账户",
+    "public": {
+      "overview": "项目介绍",
+      "announcement": "公告",
+      "event": "活动",
+      "help": "帮助中心"
+    },
+    "private": {
+      "group": "销售分组概览",
+      "ranking": "销售排名",
+      "account": "账户设置概览"
+    }
+  },
+  "header": {
+    "menu": "菜单",
+    "close": "关闭",
+    "admin": "管理",
+    "login": "登录",
+    "signup": "注册",
+    "account": "我的账户",
+    "settings": "设置"
+  },
+  "footer": {
+    "tabs": {
+      "wallet": "钱包",
+      "pkg": "套餐",
+      "home": "首页",
+      "reward": "奖励",
+      "selfSignup": "注册"
+    }
+  },
+  "actions": {
+    "save": "保存",
+    "cancel": "取消",
+    "close": "关闭",
+    "copy": "复制",
+    "confirm": "确认",
+    "back": "返回"
+  },
+  "status": {
+    "loading": "加载中…",
+    "error": "错误",
+    "success": "完成"
+  },
+  "hints": {
+    "copied": "已复制",
+    "copyFailed": "复制失败",
+    "copiedDesc": "已复制到剪贴板。",
+    "copyFailedDesc": "无法访问剪贴板。"
+  },
+  "theme": {
+    "toggleAria": "切换主题"
+  },
+  "admin": {
+    "title": "管理"
+  },
+  "account": {
+    "my": "我的账户"
+  },
+  "errors": {
+    "network": "网络错误",
+    "validation": "校验失败",
+    "unknown": "未知错误"
+  }
+}

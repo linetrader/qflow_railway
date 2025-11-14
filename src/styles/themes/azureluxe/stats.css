@@ -1,0 +1,50 @@
+/* theme/azureluxe/stats.css */
+@layer components {
+  /* ───────── theme vars ───────── */
+  :root[data-theme="azureluxe"] {
+    --status-neutral: rgba(71, 85, 105, 1) !important; /* slate-600 */
+    --status-primary: var(--color-primary) !important;
+    --status-secondary: rgba(100, 116, 139, 1) !important; /* slate-500 */
+    --status-accent: rgba(16, 24, 40, 1) !important; /* deep navy */
+    --status-info: rgba(59, 130, 246, 1) !important; /* blue-500 */
+    --status-success: var(--success) !important;
+    --status-warning: var(--warning) !important;
+    --status-error: var(--error) !important;
+
+    /* 외곽선(보더) 색 변수: 노란색 */
+    --stats-border-color: rgba(234, 179, 8, 0.9) !important; /* ~yellow-500 */
+    --stats-focus-ring: rgba(234, 179, 8, 0.18) !important; /* 연한 포커스 */
+  }
+
+  /* ───────── status: dot 외곽선 노란색 ───────── */
+  [data-theme="azureluxe"] .status {
+    box-shadow: 0 0 0 2px var(--surface-1) inset !important,
+      0 0 0 1px var(--stats-border-color) !important;
+  }
+
+  /* ───────── status: per-state color mapping ───────── */
+  [data-theme="azureluxe"] .status.status-neutral {
+    color: var(--status-neutral) !important;
+  }
+  [data-theme="azureluxe"] .status.status-primary {
+    color: var(--status-primary) !important;
+  }
+  [data-theme="azureluxe"] .status.status-secondary {
+    color: var(--status-secondary) !important;
+  }
+  [data-theme="azureluxe"] .status.status-accent {
+    color: var(--status-accent) !important;
+  }
+  [data-theme="azureluxe"] .status.status-info {
+    color: var(--status-info) !important;
+  }
+  [data-theme="azureluxe"] .status.status-success {
+    color: var(--status-success) !important;
+  }
+  [data-theme="azureluxe"] .status.status-warning {
+    color: var(--status-warning) !important;
+  }
+  [data-theme="azureluxe"] .status.status-error {
+    color: var(--status-error) !important;
+  }
+}

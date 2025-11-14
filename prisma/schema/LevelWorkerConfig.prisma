@@ -1,0 +1,34 @@
+// prisma/schema/LevelWorkerConfig.prisma
+model LevelWorkerConfig {
+  id  String @id @default(cuid())
+  /**
+   * 싱글톤 키 (환경·테넌트 구분용). 기본 'default'를 단일행으로 유지
+   */
+  key String @unique @default("default")
+
+  isActive   Boolean    @default(true)
+  mode       WorkerMode @default(loop)
+  workerId   String     @default("level-worker:dev")
+  intervalMs Int        @default(10000)
+  burstRuns  Int        @default(1)
+
+  batchSize  Int @default(10)
+  fetchLimit Int @default(50)
+
+  stallMs  Int @default(60000) // 가시성 타임아웃(ms)
+  maxAgeMs Int @default(86400000) // 작업 최대 수명(ms)
+
+  logLevel WorkerLogLevel @default(info)
+
+  // ▼ 신규 추가: 워커 러너/리스 관리 상수들
+  maxChainDepth       Int    @default(200) // MAX_CHAIN_DEPTH
+  heartbeatEverySteps Int    @default(10) // HEARTBEAT_EVERY_STEPS
+  rescueGraceSec      Int    @default(300) // RESCUE_GRACE_SEC (초)
+  leaseExpiredError   String @default("lease_expired") // LEASE_EXPIRED_ERROR
+
+  // ★ 여기 추가
+  stopAtUserId String? // 만나면 상향 전파 중단 (NULL이면 비활성)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

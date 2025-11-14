@@ -1,0 +1,112 @@
+{
+  "page": {
+    "title": "내 계정",
+    "loading": "프로필을 불러오는 중…",
+    "badgeLoading": "불러오는 중",
+    "badgeError": "오류",
+    "errors": {
+      "http": "프로필 조회 실패 (HTTP {status})",
+      "generic": "프로필 조회 실패"
+    }
+  },
+  "info": {
+    "title": "계정 정보",
+    "username": "아이디",
+    "email": "이메일",
+    "name": "이름",
+    "country": "국가",
+    "fields": {
+      "username": "아이디",
+      "email": "이메일",
+      "name": "이름",
+      "country": "국가"
+    }
+  },
+  "referral": {
+    "title": "회원가입 레퍼럴 링크",
+    "badge": "추천인",
+    "copyToastTitle": { "success": "복사됨", "error": "복사 실패" },
+    "copyToastDesc": {
+      "success": "추천 링크가 클립보드에 복사되었습니다.",
+      "error": "클립보드 접근에 실패했습니다."
+    }
+  },
+  "otp": {
+    "title": "구글 OTP",
+    "status": { "enabled": "등록됨", "disabled": "미등록" },
+    "scan": "Google Authenticator로 스캔",
+    "secretLabel": "시크릿(백업용)",
+    "codeLabel": "인증 앱 코드(6자리)",
+    "register": "OTP 등록",
+    "note": "등록 후에는 백업 코드를 안전한 곳에 보관하세요.",
+    "dialog": {
+      "title": "OTP 인증",
+      "desc": "인증 앱에 표시된 6자리 코드를 입력하세요.",
+      "inputLabel": "인증 코드",
+      "cancel": "취소",
+      "confirm": "확인",
+      "confirming": "확인 중…",
+      "need6": "6자리 코드를 입력하세요"
+    },
+    "toast": {
+      "successTitle": "완료",
+      "errorTitle": "오류",
+      "successDesc": "OTP가 등록(활성화)되었습니다.",
+      "errorDesc": "OTP 등록에 실패했습니다."
+    },
+    "errors": {
+      "init": "OTP 초기화 실패",
+      "initHttp": "OTP 초기화 실패 (HTTP {status})",
+      "registerHttp": "OTP 등록 실패 (HTTP {status})"
+    }
+  },
+  "wallet": {
+    "title": "출금 지갑 주소",
+    "status": { "registered": "등록됨", "unregistered": "미등록" },
+    "addressLabel": "지갑 주소",
+    "placeholder": "0x로 시작하는 주소",
+    "invalid": "주소 형식이 올바르지 않거나(EVM 0x + 40 hex), 체크섬이 일치하지 않습니다.",
+    "register": "등록",
+    "copyTitle": { "success": "복사됨", "error": "복사 실패" },
+    "copyDesc": {
+      "success": "출금 지갑 주소가 클립보드에 복사되었습니다.",
+      "error": "클립보드 접근에 실패했습니다."
+    },
+    "errors": {
+      "needOtp": "먼저 계정에서 구글 OTP를 등록하세요.",
+      "invalid": "지갑 주소가 유효하지 않습니다.",
+      "otpWrong": "OTP 코드가 올바르지 않습니다.",
+      "http": "저장 실패(HTTP {status})"
+    },
+    "toast": {
+      "success": "출금 지갑 주소가 등록되었습니다."
+    }
+  },
+  "password": {
+    "title": "비밀번호 변경",
+    "badge": "보안",
+    "current": "현재 비밀번호",
+    "new": "새 비밀번호",
+    "newConfirm": "새 비밀번호 확인",
+    "mismatch": "비밀번호가 일치하지 않습니다.",
+    "submit": "비밀번호 변경",
+    "submitting": "처리 중…",
+    "toast": {
+      "successTitle": "완료",
+      "errorTitle": "오류",
+      "errorFallback": "비밀번호 변경 실패",
+      "successDesc": "비밀번호가 변경되었습니다."
+    },
+    "errors": {
+      "validation": "검증 실패",
+      "http": "변경 실패(HTTP {status})"
+    },
+    "rules": {
+      "len": "8~18 문자 길이",
+      "letter": "문자 포함",
+      "digit": "숫자 포함",
+      "upper": "대문자 1자 이상",
+      "symbol": "기호 1자 이상"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "header": {
+    "back": "Quay lại",
+    "preparing": "Đang chuẩn bị địa chỉ nạp…",
+    "errorRetry": "Thử lại",
+    "network": "Mạng: {name}"
+  },
+  "qr": {
+    "generating": "Đang tạo QR…",
+    "none": "Không có QR",
+    "preparingAddr": "Đang chuẩn bị địa chỉ…",
+    "noAddr": "Không có địa chỉ",
+    "hint": "Bạn có thể quét QR bằng ứng dụng ví để nhập địa chỉ."
+  },
+  "address": {
+    "label": "Địa chỉ ví",
+    "copied": "Đã sao chép địa chỉ.",
+    "clipboardUnsupported": "Không hỗ trợ clipboard. Vui lòng sao chép thủ công."
+  }
+}

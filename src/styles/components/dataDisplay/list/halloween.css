@@ -1,0 +1,18 @@
+/* src/styles/components/dataDisplay/list/halloween.css */
+@layer components {
+  /* 다크 테마: 배경 대비를 위해 밝은 계열 */
+  [data-theme="halloween"] .list {
+    /* 외곽선 계열 */
+    --list-frame-color: rgba(255, 255, 255, 0.7);
+    --list-border-color: rgba(255, 255, 255, 0.7);
+
+    /* 내부 구분선은 더 또렷하게 */
+    --list-divider-color: rgba(255, 255, 255, 0.82);
+
+    /* 포커스 링 */
+    --list-focus-ring: rgba(255, 255, 255, 0.22);
+
+    /* 안쪽 미세 스트로크 */
+    --list-inner-stroke: rgba(255, 255, 255, 0.22);
+  }
+}

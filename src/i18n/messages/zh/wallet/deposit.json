@@ -1,0 +1,20 @@
+{
+  "header": {
+    "back": "返回",
+    "preparing": "正在准备充值地址…",
+    "errorRetry": "重试",
+    "network": "网络：{name}"
+  },
+  "qr": {
+    "generating": "正在生成二维码…",
+    "none": "暂无二维码",
+    "preparingAddr": "正在准备地址…",
+    "noAddr": "无地址",
+    "hint": "可使用钱包 App 扫描二维码以输入地址。"
+  },
+  "address": {
+    "label": "钱包地址",
+    "copied": "地址已复制。",
+    "clipboardUnsupported": "不支持剪贴板，请手动复制地址。"
+  }
+}

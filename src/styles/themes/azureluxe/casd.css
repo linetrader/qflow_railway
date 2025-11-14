@@ -1,0 +1,150 @@
+/* theme/azureluxe/casd.css */
+@layer base {
+  :root[data-theme="azureluxe"] {
+    /* Palette — bright azure with luxe hint (ALL rgba) */
+    --color-primary: rgba(34, 119, 255, 1) !important; /* #2277FF */
+    --color-primary-600: rgba(30, 100, 230, 1) !important;
+    --color-ink: rgba(26, 35, 51, 1) !important;
+    --color-gold: rgba(219, 165, 33, 1) !important;
+
+    --success: rgba(12, 180, 120, 1) !important;
+    --warning: rgba(245, 158, 11, 1) !important;
+    --error: rgba(220, 38, 38, 1) !important;
+
+    /* Text */
+    --fg-strong: rgba(17, 24, 39, 1) !important;
+    --fg: rgba(31, 41, 55, 1) !important;
+    --fg-mute: rgba(71, 85, 105, 1) !important;
+
+    /* Surfaces (light) */
+    --surface-0: rgba(247, 248, 252, 1) !important; /* page bg */
+    --surface-1: rgba(255, 255, 255, 1) !important; /* card/list bg */
+    --surface-2: rgba(244, 247, 254, 1) !important; /* hover tint */
+    --surface-3: rgba(237, 244, 255, 1) !important; /* header tint */
+
+    /* Lines */
+    --line-soft: rgba(226, 232, 240, 1) !important;
+    --line-strong: rgba(203, 213, 225, 1) !important;
+
+    /* Radii & Shadows */
+    --radius-lg: 0.875rem !important; /* 14px */
+    --radius-xl: 1rem !important; /* 16px */
+    --shadow-1: 0 4px 16px rgba(28, 80, 170, 0.08) !important;
+    --shadow-2: 0 10px 24px rgba(28, 80, 170, 0.12) !important;
+
+    /* Focus ring */
+    --ring-solid: rgba(34, 119, 255, 1) !important;
+    --ring-ghost: rgba(34, 119, 255, 0.28) !important;
+
+    --title-wt: 700 !important;
+    --body-wt: 500 !important;
+
+    /* Card border palette (optional: still used by variants) */
+    --card-border-strong: rgba(34, 119, 255, 0.65) !important;
+    --card-border-strong-hover: rgba(34, 119, 255, 0.9) !important;
+    --card-border-dash: rgba(219, 165, 33, 0.75) !important;
+    --card-border-dash-hover: rgba(219, 165, 33, 0.95) !important;
+  }
+}
+
+@layer components {
+  /* ───────────────── Card (daisyUI naming) ───────────────── */
+
+  /* 1) 전역: 모든 카드에 파란색 두꺼운 보더 적용 */
+  [data-theme="azureluxe"] .card {
+    position: relative !important;
+    display: block !important;
+    border-radius: var(--radius-xl) !important;
+    background: var(--surface-1) !important;
+
+    /* 변경: 두꺼운 파란 보더 기본값 */
+    border-width: 2px !important;
+    border-style: solid !important;
+    border-color: var(--color-primary-600) !important;
+
+    box-shadow: var(--shadow-1) !important;
+    overflow: hidden !important;
+    transition: box-shadow 200ms ease, border-color 200ms ease,
+      background-color 200ms ease !important;
+  }
+
+  [data-theme="azureluxe"] .card:hover {
+    /* 변경: 호버 시 더 선명한 파랑 */
+    border-color: var(--color-primary) !important;
+    box-shadow: var(--shadow-2) !important;
+  }
+
+  /* (선택) 굵기 + 색 강화: card-border variant는 유지 */
+  [data-theme="azureluxe"] .card.card-border {
+    border-width: 3px !important;
+    border-style: solid !important;
+    border-color: var(--color-primary-600) !important;
+    box-shadow: var(--shadow-1) !important;
+  }
+
+  [data-theme="azureluxe"] .card.card-border:hover {
+    border-color: var(--color-primary) !important;
+    box-shadow: var(--shadow-2) !important;
+  }
+
+  /* dash 스타일도 강조 */
+  [data-theme="azureluxe"] .card.card-dash {
+    border-width: 3px !important;
+    border-style: dashed !important;
+    border-color: var(--card-border-dash) !important;
+    box-shadow: var(--shadow-1) !important;
+  }
+
+  [data-theme="azureluxe"] .card.card-dash:hover {
+    border-color: var(--card-border-dash-hover) !important;
+    box-shadow: var(--shadow-2) !important;
+  }
+
+  /* Part: Title */
+  [data-theme="azureluxe"] .card-title {
+    margin: 0 !important;
+    font-weight: var(--title-wt) !important;
+    color: var(--fg-strong) !important;
+    line-height: 1.25 !important;
+    font-size: 1.05rem !important;
+  }
+
+  /* Part: Body */
+  [data-theme="azureluxe"] .card-body {
+    padding: 1rem 1.25rem !important;
+    color: var(--fg) !important;
+  }
+
+  /* Part: Actions (buttons, etc.) */
+  [data-theme="azureluxe"] .card-actions {
+    display: flex !important;
+    gap: 0.5rem !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    padding-top: 0.5rem !important;
+  }
+
+  /* Header tint section (optional) */
+  [data-theme="azureluxe"] .card > .card-header,
+  [data-theme="azureluxe"] .card .card-header {
+    background: var(--surface-3) !important;
+    color: var(--fg-strong) !important;
+    padding: 0.75rem 1.25rem !important;
+    border-bottom: 1px solid var(--line-soft) !important;
+  }
+
+  /* Divider between stacked parts inside card */
+  [data-theme="azureluxe"] .card .card-divider {
+    height: 1px !important;
+    background: var(--line-soft) !important;
+    margin: 0.5rem 0 !important;
+  }
+}
+
+@layer utilities {
+  /* Focus utility for interactive elements inside cards */
+  [data-theme="azureluxe"] .ring-azl:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9), 0 0 0 6px var(--ring-ghost) !important;
+  }
+}

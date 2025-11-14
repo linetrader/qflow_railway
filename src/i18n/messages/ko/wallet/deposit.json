@@ -1,0 +1,20 @@
+{
+  "header": {
+    "back": "뒤로 가기",
+    "preparing": "입금 주소를 준비하는 중…",
+    "errorRetry": "다시 시도",
+    "network": "네트워크: {name}"
+  },
+  "qr": {
+    "generating": "QR 생성 중…",
+    "none": "QR 없음",
+    "preparingAddr": "주소 준비 중…",
+    "noAddr": "주소 없음",
+    "hint": "지갑 앱으로 QR을 스캔해 주소를 입력할 수 있습니다."
+  },
+  "address": {
+    "label": "지갑 주소",
+    "copied": "주소가 복사되었습니다.",
+    "clipboardUnsupported": "클립보드 미지원. 주소를 직접 복사하세요."
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "errors": {
+    "requestFailed": "Request failed",
+    "network": "Network error"
+  },
+  "toast": {
+    "refetched": "Rewards data has been refreshed."
+  },
+  "labels": {
+    "totalCount": "{count}{plus} items in total"
+  },
+  "loading": {
+    "loading": "Loading…"
+  },
+  "summary": {
+    "usdt": { "title": "USDT Rewards" },
+    "dft": { "title": "DFT Rewards" },
+    "codes": {
+      "total": "Total",
+      "today": "Today",
+      "yesterday": "Yesterday"
+    },
+    "calculatedAt": "Calculated at"
+  },
+  "history": {
+    "title": "Reward History",
+    "head": {
+      "title": "Item",
+      "date": "Date",
+      "amount": "Amount"
+    },
+    "modes": {
+      "ALL": "All",
+      "USDT": "USDT",
+      "DFT": "DFT"
+    },
+    "empty": "No records to display.",
+    "loadMore": "Load more",
+    "loading": "Loading…",
+    "allLoaded": "All records have been loaded."
+  }
+}

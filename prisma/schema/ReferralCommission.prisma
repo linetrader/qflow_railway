@@ -1,0 +1,36 @@
+// prisma/schema/ReferralCommission.prisma
+model ReferralCommission {
+  id String @id @default(cuid())
+
+  buyerUserId String
+  historyId   String
+
+  beneficiaryUserId String
+  level             Int
+  percent           Decimal @db.Decimal(5, 2)
+  baseAmount        Decimal @db.Decimal(38, 18)
+
+  // USDT 커미션
+  commissionUSDT Decimal @default(0) @db.Decimal(38, 18)
+  // (기존) DFT 커미션
+  commissionDFT  Decimal @db.Decimal(38, 18)
+
+  status ReferralCommissionStatus @default(PENDING)
+
+  rewardHistoryId String?
+  rewardHistory   UserRewardHistory? @relation(fields: [rewardHistoryId], references: [id], onDelete: SetNull)
+
+  buyer       User               @relation("CommissionBuyer", fields: [buyerUserId], references: [id], onDelete: Cascade)
+  beneficiary User               @relation("CommissionBeneficiary", fields: [beneficiaryUserId], references: [id], onDelete: Cascade)
+  history     UserPackageHistory @relation(fields: [historyId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Package   Package? @relation(fields: [packageId], references: [id])
+  packageId String?
+
+  @@index([beneficiaryUserId, createdAt])
+  @@index([buyerUserId, createdAt])
+  @@index([historyId])
+  @@index([status, createdAt])
+}

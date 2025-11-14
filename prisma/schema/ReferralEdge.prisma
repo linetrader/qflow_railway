@@ -1,0 +1,24 @@
+// prisma/schema/ReferralEdge.prisma
+model ReferralEdge {
+  id String @id @default(cuid())
+
+  parentId String
+  parent   User   @relation(fields: [parentId], references: [id], onDelete: Cascade)
+
+  childId String
+  child   User   @relation("EdgeChild", fields: [childId], references: [id], onDelete: Cascade)
+
+  groupNo  Int? // 1~
+  position Int? // 하부 직대 가입 순번
+  depth    Int? // 트리 깊이
+
+  createdAt DateTime @default(now())
+
+  // 무결성 보강
+  @@unique([childId]) // 자식당 부모 1명
+  @@unique([parentId, childId]) // 동일 부모-자식 중복 방지
+  @@unique([parentId, groupNo, position]) // 동일 부모·그룹 내 position 유일(NULL은 중복 허용)
+  // 조회를 위한 인덱스(유지)
+  @@index([parentId, groupNo, position])
+  @@index([childId])
+}

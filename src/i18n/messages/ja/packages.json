@@ -1,0 +1,75 @@
+{
+  "errors": {
+    "fetchFailed": "パッケージ情報の取得に失敗しました（HTTP {status}）",
+    "network": "ネットワークエラー",
+    "unknown": "不明なエラー"
+  },
+  "loading": {
+    "fetching": "パッケージ情報を読み込み中…",
+    "retry": "再試行"
+  },
+  "purchase": {
+    "title": "パッケージ購入",
+    "cards": {
+      "usdtBalance": "USDT 残高",
+      "totalUSD": "合計金額",
+      "estQai": "見込み QAI",
+      "estNoPrice": "見込み（価格なし）"
+    },
+    "input": {
+      "label": "{name} の数量入力",
+      "placeholder": "数量"
+    },
+    "warn": {
+      "insufficient": "残高不足：必要 {need} USDT / 保有 {have} USDT — 超過 {over} USDT"
+    },
+    "cta": {
+      "buy": "購入",
+      "processing": "処理中…",
+      "title": "購入",
+      "titleDisabled": "数量を入力してください。"
+    },
+    "rateLine": {
+      "label": "* 換算レート：",
+      "value": "1 QAI = {price} USDT",
+      "none": "QAI 価格なし（価格データが必要）"
+    },
+    "notice": "購入したパッケージは QAI に変換され、サービス終了後に出金可能です。"
+  },
+  "toast": {
+    "cannotBuy": {
+      "title": "購入できません",
+      "insufficient": "残高が不足しています。USDT をチャージするか数量を調整してください。",
+      "inputQty": "数量を入力してください。"
+    },
+    "summary": {
+      "title": "購入サマリー",
+      "line": "- {name}: {units} × ${price} = ${subtotal}",
+      "totalWithRate": "- 合計: ${total}（≈ {estQai} QAI @ {price} USDT/QAI）",
+      "totalNoRate": "- 合計: ${total}（QAI 価格なし）"
+    },
+    "success": { "title": "購入完了" },
+    "fail": {
+      "title": "購入失敗",
+      "http": "購入に失敗しました（HTTP {status}）",
+      "generic": "購入中にエラーが発生しました。"
+    }
+  },
+  "history": {
+    "title": "購入履歴",
+    "totalBadge": "合計: ${total}",
+    "head": {
+      "title": "内容",
+      "date": "日時",
+      "amount": "金額",
+      "status": "ステータス"
+    },
+    "row": {
+      "title": "{kind} パッケージ · {units}"
+    },
+    "empty": "表示する履歴がありません。",
+    "loadMore": "さらに表示",
+    "loading": "読み込み中…",
+    "allLoaded": "すべての履歴を読み込みました。"
+  }
+}

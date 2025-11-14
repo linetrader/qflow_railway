@@ -1,0 +1,23 @@
+// prisma/schema/UserPackageHistory.prisma
+model UserPackageHistory {
+  id        String @id @default(cuid())
+  userId    String
+  packageId String
+  quantity  Int
+
+  // ▼ 추가: 구매 당시 단가/총액(할인·프로모션 반영된 실구매가)
+  unitPrice  Decimal @default(0) @db.Decimal(38, 18)
+  totalPrice Decimal @default(0) @db.Decimal(38, 18)
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  package Package @relation(fields: [packageId], references: [id], onDelete: Restrict)
+
+  createdAt          DateTime             @default(now())
+  ReferralCommission ReferralCommission[]
+
+  // prisma/schema/UserPackageHistory.prisma (추가)
+  centerCommissions CenterCommission[] @relation("CenterCommission_SourceHistory")
+
+  @@index([userId, createdAt])
+  @@index([packageId, createdAt])
+}

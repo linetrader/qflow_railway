@@ -1,0 +1,36 @@
+{
+  "title": "Tự đăng ký",
+  "submit": "Đăng ký",
+  "loading": "Đang tải…",
+  "loginRequired": {
+    "title": "Cần đăng nhập",
+    "desc": "Trang này chỉ truy cập khi đăng nhập để cố định mã giới thiệu của chính bạn.",
+    "cta": "Đi tới đăng nhập"
+  },
+  "note": {
+    "fixedRef": "Trên trang này, mã giới thiệu được <b>cố định tự động</b> là của <b>{username}</b> (<code>{ref}</code>)."
+  },
+  "errors": {
+    "unexpected": "Phản hồi không mong đợi (HTTP {status})",
+    "network": "Lỗi mạng",
+    "usernameTaken": "Tên người dùng đã được sử dụng.",
+    "emailTaken": "Email đã được sử dụng.",
+    "referrerNotFound": "Không tìm thấy người giới thiệu.",
+    "sponsorNotFound": "Không tìm thấy nhà bảo trợ.",
+    "countryCodeInvalid": "Mã quốc gia phải gồm 2 chữ cái (vd: KR, US).",
+    "countryNotFound": "Không tìm thấy quốc gia.",
+    "validation": "Vui lòng kiểm tra lại thông tin.",
+    "server": "Đã xảy ra lỗi máy chủ."
+  },
+  "toast": {
+    "success": {
+      "title": "Đăng ký thành công",
+      "desc": "Tạo tài khoản thành công."
+    },
+    "fail": {
+      "title": "Đăng ký thất bại",
+      "desc": "Vui lòng kiểm tra lại thông tin."
+    },
+    "network": { "title": "Lỗi mạng", "desc": "Vui lòng thử lại sau." }
+  }
+}

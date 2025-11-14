@@ -1,0 +1,63 @@
+// prisma/schema/Enums.prisma
+
+enum WalletTxType {
+  DEPOSIT
+  WITHDRAW
+}
+
+enum WalletTxStatus {
+  PENDING
+  COMPLETED
+  REJECTED
+}
+
+enum ReferralCommissionStatus {
+  PENDING
+  ACCRUED
+  CANCELED
+}
+
+enum MiningScheduleKind {
+  INTERVAL
+  DAILY
+}
+
+enum MiningRewardKind {
+  SELF // 본인 몫
+  COMPANY // 회사 몫
+  MLM_REF // MLM - 추천수익
+  MLM_LEVEL // MLM - 레벨 보너스
+}
+
+enum MiningRunStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+}
+
+enum LevelRequirementKind {
+  NODE_AMOUNT_MIN // 본인 노드(보유) 금액 ≥ amount (예: USD)
+  DIRECT_REFERRAL_COUNT_MIN // 본인 추천수 ≥ count
+  GROUP_SALES_AMOUNT_MIN // 본인 그룹 매출 ≥ amount (예: USD)
+  DIRECT_DOWNLINE_LEVEL_COUNT_MIN // 내 "직접" 하위 중 특정 레벨 보유 인원수 ≥ count
+}
+
+enum LevelJobStatus {
+  PENDING
+  IN_PROGRESS
+  SUCCEEDED
+  DEAD
+}
+
+enum WorkerMode {
+  once
+  loop
+}
+
+enum WorkerLogLevel {
+  debug
+  info
+  warn
+  error
+}

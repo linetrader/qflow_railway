@@ -1,0 +1,136 @@
+/* src/styles/components/dataDisplay/stats/_index.css */
+@layer components {
+  /* ===== Base (색상 없음) ===== */
+  .stats {
+    /* 프레임: 테마 변수만 참조 */
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--stats-border-color);
+    background-clip: padding-box;
+    /* 필요 시 내부 스트로크 사용
+       box-shadow: inset 0 0 0 1px var(--stats-border-color); */
+    border-radius: var(--rounded-box, 1rem);
+
+    /* 레이아웃 & 내부 여백 (기본: flex) */
+    display: flex;
+    flex-direction: column;
+
+    /* 기본 내부 여백/갭 변수 */
+    --stats-px: 0.875rem; /* 14px */
+    --stats-py: 0.75rem; /* 12px */
+    --stats-gap: 0.5rem; /* 8px */
+
+    padding: var(--stats-py) var(--stats-px);
+    gap: var(--stats-gap);
+    min-height: 4rem; /* 지나친 압축 방지 */
+  }
+
+  .stats:focus-within {
+    outline: none;
+    box-shadow: inset 0 0 0 1px var(--stats-border-color),
+      0 0 0 2px var(--stats-focus-ring);
+  }
+
+  /* ───────────────────────────────────────────────────
+     분리선(점선/실선) 제거: daisyUI가 넣는 stat 보더/가상요소 무력화
+     ─────────────────────────────────────────────────── */
+  .stats .stat {
+    border: 0 !important;
+  }
+  .stats .stat + .stat {
+    border-left: 0 !important;
+  }
+  .stats .stat::before,
+  .stats .stat::after {
+    content: none !important;
+  }
+
+  /* ===== Text slots (AssetCard에서 사용) ===== */
+  .stat-title {
+    margin: 0;
+    font-size: 0.8125rem; /* ~13px */
+    line-height: 1.1;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+
+  .stat-value {
+    margin: 0;
+    font-size: 1.75rem; /* ~28px */
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .stats-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* ===== Density (반응형) ===== */
+  @media (min-width: 640px) {
+    .stats {
+      --stats-px: 1rem; /* 16px */
+      --stats-py: 0.875rem; /* 14px */
+      --stats-gap: 0.625rem; /* 10px */
+      min-height: 4.25rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .stats {
+      --stats-px: 1.125rem; /* 18px */
+      --stats-py: 1rem; /* 16px */
+      --stats-gap: 0.75rem; /* 12px */
+      min-height: 4.5rem;
+    }
+  }
+
+  /* ===== Optional helpers ===== */
+  .stats.compact {
+    --stats-px: 0.75rem;
+    --stats-py: 0.625rem;
+    --stats-gap: 0.5rem;
+  }
+  .stats.comfortable {
+    --stats-px: 1.25rem;
+    --stats-py: 1rem;
+    --stats-gap: 0.875rem;
+  }
+
+  /* ============================
+     ▶ 추가: 그리드/패딩/정렬 헬퍼
+     ============================ */
+
+  /* .stats를 grid로 강제 (Tailwind grid-cols-*가 확실히 적용되도록) */
+  .stats--grid {
+    display: grid !important;
+  }
+
+  /* 모바일 1열 → sm 이상 3열 프리셋 */
+  .stats--grid-3 {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: var(--stats-gap);
+  }
+  @media (min-width: 640px) {
+    .stats--grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  /* 좌우 패딩 제거(마지막 칸 오른쪽 여백 문제 해결) */
+  .stats--flush {
+    --stats-px: 0;
+  }
+
+  /* 토큰 카드 가운데 정렬 (배지/값/보조문구) */
+  .stats--center .stat > * {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* 테마는 별도 파일에서 색만 주입됨 */
+@import "./caramellatte.css";
+@import "./halloween.css";

@@ -1,0 +1,17 @@
+// prisma/schema/UserPackage.prisma
+model UserPackage {
+  id        String @id @default(cuid())
+  userId    String
+  packageId String
+  quantity  Int    @default(0)
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  package Package @relation(fields: [packageId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, packageId])
+  @@index([userId])
+  @@index([packageId])
+}

@@ -1,0 +1,42 @@
+{
+  "errors": {
+    "requestFailed": "Yêu cầu thất bại",
+    "network": "Lỗi mạng"
+  },
+  "toast": {
+    "refetched": "Đã làm mới dữ liệu phần thưởng."
+  },
+  "labels": {
+    "totalCount": "Tổng cộng {count}{plus} mục"
+  },
+  "loading": {
+    "loading": "Đang tải…"
+  },
+  "summary": {
+    "usdt": { "title": "Phần thưởng USDT" },
+    "dft": { "title": "Phần thưởng DFT" },
+    "codes": {
+      "total": "Tổng",
+      "today": "Hôm nay",
+      "yesterday": "Hôm qua"
+    },
+    "calculatedAt": "Thời điểm tính"
+  },
+  "history": {
+    "title": "Lịch sử phần thưởng",
+    "head": {
+      "title": "Mục",
+      "date": "Thời gian",
+      "amount": "Số tiền"
+    },
+    "modes": {
+      "ALL": "Tất cả",
+      "USDT": "USDT",
+      "DFT": "DFT"
+    },
+    "empty": "Không có mục nào để hiển thị.",
+    "loadMore": "Xem thêm",
+    "loading": "Đang tải…",
+    "allLoaded": "Đã tải tất cả."
+  }
+}

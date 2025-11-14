@@ -1,0 +1,36 @@
+{
+  "title": "셀프 회원가입",
+  "submit": "회원 가입",
+  "loading": "로딩 중…",
+  "loginRequired": {
+    "title": "로그인이 필요합니다",
+    "desc": "셀프 회원가입 페이지는 본인 추천 코드 고정을 위해 로그인 상태에서만 접근할 수 있습니다.",
+    "cta": "로그인 하러 가기"
+  },
+  "note": {
+    "fixedRef": "이 페이지에서는 추천인 코드가 <b>{username}</b>님의 코드(<code>{ref}</code>)로 <b>자동 고정</b>됩니다."
+  },
+  "errors": {
+    "unexpected": "예상치 못한 응답입니다(HTTP {status})",
+    "network": "네트워크 오류",
+    "usernameTaken": "이미 사용 중인 아이디입니다.",
+    "emailTaken": "이미 사용 중인 이메일입니다.",
+    "referrerNotFound": "추천인을 찾을 수 없습니다.",
+    "sponsorNotFound": "후원인을 찾을 수 없습니다.",
+    "countryCodeInvalid": "국가 코드는 영문 2글자여야 합니다. (예: KR, US)",
+    "countryNotFound": "해당 국가 코드를 찾을 수 없습니다.",
+    "validation": "입력값을 다시 확인해 주세요.",
+    "server": "서버 오류가 발생했습니다."
+  },
+  "toast": {
+    "success": {
+      "title": "가입 완료",
+      "desc": "회원가입이 성공적으로 처리되었습니다."
+    },
+    "fail": { "title": "가입 실패", "desc": "입력값을 확인해 주세요." },
+    "network": {
+      "title": "네트워크 오류",
+      "desc": "잠시 후 다시 시도해 주세요."
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "title": "Wallet",
+  "loading": {
+    "loading": "Loading",
+    "loadingWallet": "Loading wallet information…"
+  },
+  "error": {
+    "title": "Error",
+    "loginReqTitle": "Sign-in Required",
+    "loginReqDesc": "Please sign in to view your wallet information.",
+    "unknown": "An unknown error occurred."
+  },
+  "balances": {
+    "title": "Balances",
+    "assets": {
+      "USDT": "Tether",
+      "QAI": "QuantixAI",
+      "DFT": "DeepFlow"
+    }
+  },
+  "transfer": {
+    "title": "Deposit & Withdraw",
+    "deposit": "Deposit",
+    "withdraw": "Withdraw"
+  },
+  "sell": {
+    "title": "Register DFT Sale",
+    "hold": "Holding: {amount} DFT",
+    "qty": "Quantity (DFT)",
+    "placeholderQty": "e.g., 1000",
+    "unit": "Unit Price (USDT)",
+    "total": "Total (USDT)",
+    "submit": "Submit Sale",
+    "invalid": "Enter a valid amount within your available balance.",
+    "toastOkTitle": "Sale Registered",
+    "toastOkDesc": "Your sale registration is completed. (sample)"
+  },
+  "history": {
+    "title": "Deposit / Withdraw History",
+    "head": ["Item", "Date/Time", "Amount", "Status"],
+    "empty": "No history to display.",
+    "recentMore": "Recent {count}+ items",
+    "recent": "Recent {count} items",
+    "loading": "Loading…",
+    "more": "Load More",
+    "allLoaded": "All history has been loaded."
+  }
+}

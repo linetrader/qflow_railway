@@ -1,0 +1,39 @@
+{
+  "title": "我的等级与分组汇总",
+  "badges": {
+    "myLevel": "我的等级：{level}"
+  },
+  "labels": {
+    "levelUnknown": "未知",
+    "group": "分组",
+    "salesVolumeUSDT": "销售合计（USDT）",
+    "dailyAllowanceDFT": "每日额度（DFT）"
+  },
+  "columns": {
+    "group": "分组",
+    "salesVolumeUSDT": "销售合计（USDT）",
+    "dailyAllowanceDFT": "每日额度（DFT）",
+    "updatedAt": "更新时间"
+  },
+  "notes": {
+    "groupNo": "* groupNo 表示你直属下线中的槽位编号。"
+  },
+  "loading": {
+    "badge": "加载中…",
+    "ariaProgress": "加载中"
+  },
+  "empty": {
+    "noData": "没有分组汇总数据。",
+    "noGroups": "暂无可显示的分组汇总。"
+  },
+  "toast": {
+    "errorTitle": "错误"
+  },
+  "errors": {
+    "fetchFailed": "获取团队信息失败（HTTP {status}）",
+    "network": "网络错误"
+  },
+  "aria": {
+    "mobileList": "分组汇总列表"
+  }
+}

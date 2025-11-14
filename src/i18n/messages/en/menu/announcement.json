@@ -1,0 +1,25 @@
+{
+  "header": {
+    "title": "Announcements"
+  },
+  "actions": {
+    "refresh": "Refresh",
+    "home": "Home"
+  },
+  "table": {
+    "colTitle": "Title",
+    "colPublishedAt": "Published At"
+  },
+  "messages": {
+    "loadingList": "Loading…",
+    "emptyList": "No announcements have been published.",
+    "errorPrefix": "Error:"
+  },
+  "detail": {
+    "title": "View Announcement",
+    "close": "Close",
+    "loading": "Loading…",
+    "publishedLabel": "Published",
+    "placeholder": "Select an announcement from the list to display it here."
+  }
+}

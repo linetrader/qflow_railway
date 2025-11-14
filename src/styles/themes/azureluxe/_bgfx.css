@@ -1,0 +1,109 @@
+/* theme/azureluxe/bgfx-glow.css */
+@layer utilities {
+  /* 컨테이너: body 또는 임의 래퍼에 .bgfx .bgfx-glow */
+  html[data-theme="azureluxe"] body.bgfx,
+  html[data-theme="azureluxe"] .bgfx {
+    position: relative !important;
+    isolation: isolate !important;
+  }
+  html[data-theme="azureluxe"] body.bgfx::before,
+  html[data-theme="azureluxe"] body.bgfx::after,
+  html[data-theme="azureluxe"] .bgfx::before,
+  html[data-theme="azureluxe"] .bgfx::after {
+    content: "" !important;
+    position: fixed !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+  }
+
+  /* ── Glow 효과 (푸른빛) ───────────────────────────────────────── */
+  /* 깊은 광원 + 부드러운 블룸 */
+  html[data-theme="azureluxe"] .bgfx.bgfx-glow::before,
+  html[data-theme="azureluxe"] body.bgfx.bgfx-glow::before {
+    /* 중심 광원 + 보조 광원 + 얇은 베일 */
+    background: radial-gradient(
+        42rem 28rem at 20% -5%,
+        rgba(34, 119, 255, 0.3),
+        transparent 70%
+      ),
+      radial-gradient(
+        52rem 36rem at 105% -10%,
+        rgba(34, 119, 255, 0.22),
+        transparent 75%
+      ),
+      radial-gradient(
+        70rem 48rem at 50% 0%,
+        rgba(34, 119, 255, 0.1),
+        transparent 80%
+      ) !important;
+    filter: blur(0.5px) !important;
+    opacity: 1 !important;
+    animation: azl-glow-shift 18s ease-in-out infinite alternate !important;
+  }
+
+  /* 주변부 은은한 블룸 + 살짝 회전하는 빛 장막 */
+  html[data-theme="azureluxe"] .bgfx.bgfx-glow::after,
+  html[data-theme="azureluxe"] body.bgfx.bgfx-glow::after {
+    background: conic-gradient(
+      from 220deg at 60% -10%,
+      rgba(34, 119, 255, 0.2),
+      rgba(34, 119, 255, 0.05) 25%,
+      transparent 40%,
+      rgba(34, 119, 255, 0.06) 55%,
+      transparent 70%,
+      rgba(34, 119, 255, 0.12) 85%,
+      rgba(34, 119, 255, 0.2)
+    ) !important;
+    mix-blend-mode: screen !important;
+    filter: blur(24px) !important;
+    opacity: 0.7 !important;
+    transform-origin: 60% -10% !important;
+    animation: azl-glow-rotate 40s linear infinite !important;
+  }
+
+  /* ── 접근성: 모션 축소 ───────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    html[data-theme="azureluxe"] .bgfx.bgfx-glow::before,
+    html[data-theme="azureluxe"] body.bgfx.bgfx-glow::before,
+    html[data-theme="azureluxe"] .bgfx.bgfx-glow::after,
+    html[data-theme="azureluxe"] body.bgfx.bgfx-glow::after {
+      animation: none !important;
+    }
+  }
+
+  /* ── 키프레임 ───────────────────────────────────────────────── */
+  @keyframes azl-glow-shift {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
+      opacity: 0.95;
+    }
+    50% {
+      transform: translate3d(2%, -1%, 0) scale(1.02);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(-2%, 1%, 0) scale(1.01);
+      opacity: 0.95;
+    }
+  }
+  @keyframes azl-glow-rotate {
+    0% {
+      transform: rotate(0deg) scale(1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: rotate(180deg) scale(1.02);
+      opacity: 0.6;
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+      opacity: 0.7;
+    }
+  }
+
+  /* 옵션: 기본 면 색을 살짝 더 푸르게 틴트하고 싶다면 추가 사용 */
+  html[data-theme="azureluxe"] .bg-azl-tint {
+    background-color: rgba(34, 119, 255, 0.06) !important;
+  }
+}

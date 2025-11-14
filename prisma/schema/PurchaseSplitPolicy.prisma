@@ -1,0 +1,19 @@
+// prisma/schema/PurchaseSplitPolicy.prisma
+model PurchaseSplitPolicy {
+  id        String   @id @default(cuid())
+  isActive  Boolean  @default(true)
+
+  /// 구매가 중 '분배에 사용하는 베이스' 비율 (예: 50)
+  basePct   Decimal  @db.Decimal(5, 2)
+
+  /// basePct 내에서의 상대 비율들 (합계 ≤ 100 권장)
+  refPct     Decimal  @db.Decimal(5, 2)  // 추천
+  centerPct  Decimal  @db.Decimal(5, 2)  // 센터피
+  levelPct   Decimal  @db.Decimal(5, 2)  // 레벨 보너스
+  companyPct Decimal  @db.Decimal(5, 2)  // 회사 (← 추가)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive, updatedAt])
+}

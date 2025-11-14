@@ -1,0 +1,48 @@
+{
+  "title": "Ví",
+  "loading": {
+    "loading": "Đang tải",
+    "loadingWallet": "Đang tải thông tin ví…"
+  },
+  "error": {
+    "title": "Lỗi",
+    "loginReqTitle": "Cần đăng nhập",
+    "loginReqDesc": "Vui lòng đăng nhập để xem thông tin ví.",
+    "unknown": "Đã xảy ra lỗi không xác định."
+  },
+  "balances": {
+    "title": "Tài sản đang giữ",
+    "assets": {
+      "USDT": "Tether",
+      "QAI": "QuantixAI",
+      "DFT": "DeepFlow"
+    }
+  },
+  "transfer": {
+    "title": "Nạp & Rút",
+    "deposit": "Nạp",
+    "withdraw": "Rút"
+  },
+  "sell": {
+    "title": "Đăng ký bán DFT",
+    "hold": "Đang giữ: {amount} DFT",
+    "qty": "Số lượng (DFT)",
+    "placeholderQty": "VD: 1000",
+    "unit": "Đơn giá (USDT)",
+    "total": "Tổng (USDT)",
+    "submit": "Đăng ký bán",
+    "invalid": "Hãy nhập số lượng hợp lệ trong phạm vi số dư đang giữ.",
+    "toastOkTitle": "Đăng ký bán",
+    "toastOkDesc": "Đăng ký bán đã hoàn tất. (hiển thị mẫu)"
+  },
+  "history": {
+    "title": "Lịch sử nạp/rút",
+    "head": ["Nội dung", "Thời gian", "Số tiền", "Trạng thái"],
+    "empty": "Không có lịch sử để hiển thị.",
+    "recentMore": "Gần đây {count}+ mục",
+    "recent": "Gần đây {count} mục",
+    "loading": "Đang tải…",
+    "more": "Xem thêm",
+    "allLoaded": "Đã tải toàn bộ lịch sử."
+  }
+}

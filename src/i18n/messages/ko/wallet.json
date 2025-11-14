@@ -1,0 +1,48 @@
+{
+  "title": "지갑",
+  "loading": {
+    "loading": "불러오는 중",
+    "loadingWallet": "지갑 정보를 불러오는 중…"
+  },
+  "error": {
+    "title": "오류",
+    "loginReqTitle": "로그인 필요",
+    "loginReqDesc": "지갑 정보를 보려면 로그인해 주세요.",
+    "unknown": "알 수 없는 오류가 발생했습니다."
+  },
+  "balances": {
+    "title": "보유 자산",
+    "assets": {
+      "USDT": "테더",
+      "QAI": "QuantixAI",
+      "DFT": "DeepFlow"
+    }
+  },
+  "transfer": {
+    "title": "입금 및 출금",
+    "deposit": "입금",
+    "withdraw": "출금"
+  },
+  "sell": {
+    "title": "DFT 판매 등록",
+    "hold": "보유: {amount} DFT",
+    "qty": "수량 (DFT)",
+    "placeholderQty": "예: 1000",
+    "unit": "단가 (USDT)",
+    "total": "총액 (USDT)",
+    "submit": "판매 등록",
+    "invalid": "올바른 수량을 입력하고 보유 수량 범위 내에서 등록하세요.",
+    "toastOkTitle": "판매 등록",
+    "toastOkDesc": "판매 등록이 완료되었습니다. (샘플)"
+  },
+  "history": {
+    "title": "입·출금 히스토리",
+    "head": ["내역", "일시", "금액", "상태"],
+    "empty": "표시할 히스토리가 없습니다.",
+    "recentMore": "최근 {count}+건",
+    "recent": "최근 {count}건",
+    "loading": "불러오는 중…",
+    "more": "더 보기",
+    "allLoaded": "모든 히스토리를 불러왔습니다."
+  }
+}

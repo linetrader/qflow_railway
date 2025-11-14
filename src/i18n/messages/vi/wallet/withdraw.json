@@ -1,0 +1,38 @@
+{
+  "header": {
+    "back": "Quay lại",
+    "title": "Rút (Withdraw)"
+  },
+  "panel": {
+    "priceFeeTitle": "Giá & Phí rút",
+    "fee": "Phí rút: {fee}%",
+    "totalVal": "Tổng giá trị ước tính: ≈ {value} USDT"
+  },
+  "cards": {
+    "sectionTitle": "Yêu cầu rút theo token",
+    "hold": "Đang giữ: {amount} {token}",
+    "amountLabel": "Số lượng",
+    "amountPlaceholder": "Nhập số lượng",
+    "submitTitleInvalid": "Vui lòng nhập số lượng hợp lệ.",
+    "submit": "Yêu cầu rút",
+    "est": "Quy đổi ước tính: ≈ {value} USDT",
+    "invalid": "Vui lòng nhập số lượng hợp lệ trong phạm vi số dư đang giữ."
+  },
+  "loading": {
+    "title": "Rút",
+    "loading": "Đang tải",
+    "loadingDetail": "Đang tải thông tin ví / giá…"
+  },
+  "error": {
+    "title": "Rút",
+    "badge": "Lỗi",
+    "retry": "Thử lại"
+  },
+  "toast": {
+    "processing": "Đang xử lý, vui lòng chờ.",
+    "withdrawFailTitle": "Rút thất bại",
+    "withdrawOkTitle": "Đã gửi yêu cầu rút",
+    "withdrawOkDesc": "Yêu cầu rút đã được ghi nhận. (chờ xử lý)",
+    "networkErrorTitle": "Lỗi mạng"
+  }
+}

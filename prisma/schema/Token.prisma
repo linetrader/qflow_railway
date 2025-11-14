@@ -1,0 +1,11 @@
+// prisma/schema/Token.prisma
+model Token {
+  code        String  @id // 예: "USDT", "QAI", "DFT"
+  displayName String
+  isActive    Boolean @default(true)
+  // 필요 시 확장 필드: decimals, withdrawFeePolicy 등
+
+  // 역방향 관계
+  coinPrices CoinPrice[]
+  walletTxs  WalletTx[]
+}

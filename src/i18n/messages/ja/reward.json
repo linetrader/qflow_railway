@@ -1,0 +1,42 @@
+{
+  "errors": {
+    "requestFailed": "リクエストに失敗しました",
+    "network": "ネットワークエラー"
+  },
+  "toast": {
+    "refetched": "リワードデータを再取得しました。"
+  },
+  "labels": {
+    "totalCount": "合計 {count}{plus} 件"
+  },
+  "loading": {
+    "loading": "読み込み中…"
+  },
+  "summary": {
+    "usdt": { "title": "USDT リワード" },
+    "dft": { "title": "DFT リワード" },
+    "codes": {
+      "total": "合計",
+      "today": "今日",
+      "yesterday": "昨日"
+    },
+    "calculatedAt": "算出基準"
+  },
+  "history": {
+    "title": "リワード履歴",
+    "head": {
+      "title": "内容",
+      "date": "日時",
+      "amount": "金額"
+    },
+    "modes": {
+      "ALL": "すべて",
+      "USDT": "USDT",
+      "DFT": "DFT"
+    },
+    "empty": "表示する履歴がありません。",
+    "loadMore": "さらに表示",
+    "loading": "読み込み中…",
+    "allLoaded": "すべての履歴を読み込みました。"
+  }
+}

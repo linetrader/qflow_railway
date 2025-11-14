@@ -1,0 +1,27 @@
+// prisma/schema/LevelRecalcJob.prisma
+model LevelRecalcJob {
+  id       BigInt  @id @default(autoincrement())
+  userId   String
+  reason   String // 'purchase' 등
+  policyId String?
+  payload  Json?
+
+  status      LevelJobStatus @default(PENDING)
+  attempts    Int            @default(0)
+  maxAttempts Int            @default(10)
+
+  scheduledAt    DateTime  @default(now())
+  availableUntil DateTime?
+  pickedAt       DateTime?
+  pickedBy       String?
+
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  finishedAt DateTime?
+  lastError  String?
+
+  // 멱등성을 위한 키(같은 사용자/사유에 대해 분 단위 중복 방지 등)
+  dedupeKey String? @unique
+
+  @@index([status, scheduledAt, id])
+}

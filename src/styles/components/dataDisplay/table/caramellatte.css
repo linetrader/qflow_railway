@@ -1,0 +1,17 @@
+/* src/styles/components/dataDisplay/table/caramellatte.css */
+@layer components {
+  [data-theme="caramellatte"] .table {
+    --table-border-color: rgba(87, 71, 46, 0.28);
+    --table-focus-ring: rgba(87, 71, 46, 0.12);
+
+    /* 헤더/행 배경 및 상태 색 */
+    --table-header-bg: rgba(255, 253, 248, 0.92);
+    --table-header-fg: hsl(var(--bc));
+    --table-stripe-bg: rgba(87, 71, 46, 0.04);
+    --table-row-hover-bg: rgba(87, 71, 46, 0.06);
+  }
+
+  [data-theme="caramellatte"] .table-title {
+    color: hsl(var(--p) / 0.9);
+  }
+}

@@ -1,0 +1,12 @@
+// prisma/schema/UserReferralStats.prisma
+model UserReferralStats {
+  id                     String  @id @default(cuid())
+  userId                 String  @unique
+  totalSalesVolume       Decimal @default(0) @db.Decimal(38, 18)
+  totalDailyAllowanceDFT Decimal @default(0) @db.Decimal(38, 18)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+}

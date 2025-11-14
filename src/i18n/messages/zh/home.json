@@ -1,0 +1,35 @@
+{
+  "announcements": {
+    "title": "公告",
+    "seeAll": "查看全部",
+    "empty": "暂无公告可显示。",
+    "badge": { "notice": "通知" }
+  },
+  "assets": {
+    "title": "资产",
+    "usdt": { "name": "泰达" },
+    "qai": { "name": "QuantixAI" },
+    "dft": { "name": "DeepFlow" }
+  },
+  "reward": {
+    "title": "奖励",
+    "recentCount": "最近 {count} 条",
+    "empty": "暂无奖励记录。"
+  },
+  "purchase": {
+    "title": "购买记录",
+    "recentCount": "最近 {count} 条",
+    "empty": "暂无购买记录。",
+    "unitPriceInline": "({price} /个)"
+  },
+  "table": {
+    "head": {
+      "subject": "项目",
+      "date": "日期",
+      "amount": "金额"
+    }
+  },
+  "loading": { "homeData": "正在加载数据…" },
+  "error": { "generic": "发生错误：{message}" },
+  "guest": { "notice": "登录后即可查看详细信息。" }
+}

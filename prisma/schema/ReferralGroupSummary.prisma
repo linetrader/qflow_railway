@@ -1,0 +1,16 @@
+// prisma/schema/ReferralGroupSummary.prisma
+model ReferralGroupSummary {
+  id                String  @id @default(cuid())
+  userId            String
+  groupNo           Int
+  salesVolume       Decimal @default(0) @db.Decimal(38, 18)
+  dailyAllowanceDFT Decimal @default(0) @db.Decimal(38, 18)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+
+  @@unique([userId, groupNo])
+  @@index([userId, groupNo])
+}

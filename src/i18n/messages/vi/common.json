@@ -1,0 +1,87 @@
+{
+  "app": { "name": "QFlow" },
+  "nav": {
+    "wallet": "Ví",
+    "packages": "Gói",
+    "home": "Trang chủ",
+    "reward": "Phần thưởng",
+    "selfSignup": "Tự đăng ký",
+    "signup": "Đăng ký",
+    "homeAria": "Về trang chủ",
+    "bottomAria": "Thanh điều hướng dưới"
+  },
+  "auth": {
+    "login": "Đăng nhập",
+    "signup": "Đăng ký",
+    "logout": "Đăng xuất"
+  },
+  "menu": {
+    "open": "Mở menu",
+    "drawerAria": "Menu bên",
+    "title": "Menu",
+    "settings": "Cài đặt",
+    "account": "Tài khoản",
+    "public": {
+      "overview": "Giới thiệu dự án",
+      "announcement": "Thông báo",
+      "event": "Sự kiện",
+      "help": "Trung tâm trợ giúp"
+    },
+    "private": {
+      "group": "Tình hình nhóm doanh số",
+      "ranking": "Xếp hạng doanh số",
+      "account": "Tình trạng cài đặt tài khoản"
+    }
+  },
+  "header": {
+    "menu": "Menu",
+    "close": "Đóng",
+    "admin": "Quản trị",
+    "login": "Đăng nhập",
+    "signup": "Đăng ký",
+    "account": "Tài khoản của tôi",
+    "settings": "Cài đặt"
+  },
+  "footer": {
+    "tabs": {
+      "wallet": "Ví",
+      "pkg": "Gói",
+      "home": "Trang chủ",
+      "reward": "Phần thưởng",
+      "selfSignup": "Đăng ký"
+    }
+  },
+  "actions": {
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "close": "Đóng",
+    "copy": "Sao chép",
+    "confirm": "Xác nhận",
+    "back": "Quay lại"
+  },
+  "status": {
+    "loading": "Đang tải…",
+    "error": "Lỗi",
+    "success": "Hoàn tất"
+  },
+  "hints": {
+    "copied": "Đã sao chép",
+    "copyFailed": "Sao chép thất bại",
+    "copiedDesc": "Đã sao chép vào bộ nhớ tạm.",
+    "copyFailedDesc": "Không thể truy cập bộ nhớ tạm."
+  },
+  "theme": {
+    "toggleAria": "Chuyển chủ đề"
+  },
+  "admin": {
+    "title": "Quản trị"
+  },
+  "account": {
+    "my": "Tài khoản của tôi"
+  },
+  "errors": {
+    "network": "Lỗi mạng",
+    "validation": "Xác thực thất bại",
+    "unknown": "Lỗi không xác định"
+  }
+}

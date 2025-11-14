@@ -1,0 +1,135 @@
+// ===== Enums =====
+enum BoardType {
+  NOTICE // 공지
+  EVENT // 이벤트
+  SUPPORT // 고객센터
+}
+
+enum SupportCategory {
+  QNA // 고객센터 - Q&A (공개)
+  ONE_TO_ONE // 고객센터 - 1:1 (비공개)
+}
+
+enum BodyFormat {
+  MARKDOWN
+  HTML
+}
+
+enum PostVisibility {
+  PUBLIC // 누구나 열람
+  PRIVATE // 작성자+관리자만
+}
+
+// ===== Models =====
+
+// 게시글 본체: User 와의 관계는 "작성자(author)" 하나만 둡니다.
+model Post {
+  id        String    @id @default(cuid())
+  boardType BoardType
+
+  // 고객센터 전용 분류
+  supportCategory SupportCategory?
+
+  // 작성자 (User에 역방향 필드 필요 없음)
+  authorId String
+  author   User   @relation(name: "PostAuthor", fields: [authorId], references: [id], onDelete: Restrict)
+
+  // 열람 가시성
+  visibility PostVisibility @default(PUBLIC)
+
+  // 제목/본문(Tiptap)
+  title      String
+  bodyFormat BodyFormat @default(HTML)
+  bodyRaw    String // 에디터 원문
+  bodyHtml   String // 서버 sanitize 후 최종 HTML(렌더는 이 필드만)
+
+  // 출판(공지/이벤트)
+  isPublished Boolean   @default(false)
+  publishedAt DateTime?
+
+  // 태깅/통계
+  tags      String[]
+  viewCount Int      @default(0)
+  likeCount Int      @default(0)
+
+  // 이벤트 전용
+  eventStartAt DateTime?
+  eventEndAt   DateTime?
+  bannerUrl    String?
+  ctaLinkUrl   String?
+
+  // 외부 기사 메타(선택)
+  sourceUrl         String?
+  sourceTitle       String?
+  sourceByline      String?
+  sourcePublishedAt DateTime?
+
+  // 첨부/댓글
+  attachments Attachment[]
+  comments    Comment[]
+
+  // 1:1 담당자(선택) — 별도 테이블로 분리(아래 SupportAssignment)
+  assignment SupportAssignment?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([boardType, isPublished, publishedAt])
+  @@index([authorId])
+  @@index([supportCategory])
+  @@index([visibility])
+  @@index([sourceUrl])
+
+  // ✅ 태그 검색 최적화
+  @@index([tags(ops: ArrayOps)], type: Gin)
+
+  // (선택) 최신순 목록 자주 쓰면
+  // @@index([createdAt(sort: Desc)])
+}
+
+// 1:1 문의 담당자(선택) — Post 1 : 0..1 SupportAssignment
+// User와의 관계는 여기에서만 1개 존재하므로, User 역방향 없이도 충돌이 발생하지 않습니다.
+model SupportAssignment {
+  postId String @id
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  assigneeId String?
+  assignee   User?   @relation(name: "TicketAssignee", fields: [assigneeId], references: [id], onDelete: SetNull)
+
+  assignedAt DateTime @default(now())
+
+  @@index([assigneeId])
+}
+
+model Attachment {
+  id        String   @id @default(cuid())
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  fileUrl   String
+  fileName  String
+  fileSize  Int
+  createdAt DateTime @default(now())
+
+  @@index([postId])
+}
+
+// 댓글: User와의 관계가 있지만 "Post" 모델과는 별도라, 에러 메시지의
+// "Field 'Post' is already defined on model 'User'" 문제와 무관합니다.
+model Comment {
+  id String @id @default(cuid())
+
+  postId String
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  authorId String
+  author   User   @relation(name: "CommentAuthor", fields: [authorId], references: [id], onDelete: Restrict)
+
+  bodyHtml  String
+  isPrivate Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@index([postId, createdAt])
+  @@index([authorId])
+  @@index([isPrivate])
+}

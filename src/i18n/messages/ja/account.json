@@ -1,0 +1,112 @@
+{
+  "page": {
+    "title": "マイアカウント",
+    "loading": "プロフィールを読み込み中…",
+    "badgeLoading": "読み込み中",
+    "badgeError": "エラー",
+    "errors": {
+      "http": "プロフィールの読み込みに失敗しました (HTTP {status})",
+      "generic": "プロフィールの読み込みに失敗しました"
+    }
+  },
+  "info": {
+    "title": "アカウント情報",
+    "username": "ユーザー名",
+    "email": "メール",
+    "name": "氏名",
+    "country": "国",
+    "fields": {
+      "username": "ユーザー名",
+      "email": "メール",
+      "name": "氏名",
+      "country": "国"
+    }
+  },
+  "referral": {
+    "title": "会員登録リファラルリンク",
+    "badge": "紹介者",
+    "copyToastTitle": { "success": "コピーしました", "error": "コピーに失敗" },
+    "copyToastDesc": {
+      "success": "リファラルリンクをクリップボードにコピーしました。",
+      "error": "クリップボードへのアクセスに失敗しました。"
+    }
+  },
+  "otp": {
+    "title": "Google OTP",
+    "status": { "enabled": "有効", "disabled": "無効" },
+    "scan": "Google Authenticator でスキャン",
+    "secretLabel": "シークレット (バックアップ)",
+    "codeLabel": "認証アプリのコード (6桁)",
+    "register": "OTP 登録",
+    "note": "登録後はバックアップコードを安全な場所に保管してください。",
+    "dialog": {
+      "title": "OTP 認証",
+      "desc": "認証アプリに表示される 6 桁のコードを入力してください。",
+      "inputLabel": "認証コード",
+      "cancel": "キャンセル",
+      "confirm": "確認",
+      "confirming": "確認中…",
+      "need6": "6 桁のコードを入力してください"
+    },
+    "toast": {
+      "successTitle": "完了",
+      "errorTitle": "エラー",
+      "successDesc": "OTP が有効になりました。",
+      "errorDesc": "OTP の登録に失敗しました。"
+    },
+    "errors": {
+      "init": "OTP の初期化に失敗しました",
+      "initHttp": "OTP の初期化に失敗しました (HTTP {status})",
+      "registerHttp": "OTP 登録に失敗しました (HTTP {status})"
+    }
+  },
+  "wallet": {
+    "title": "出金ウォレットアドレス",
+    "status": { "registered": "登録済み", "unregistered": "未登録" },
+    "addressLabel": "ウォレットアドレス",
+    "placeholder": "0x で始まるアドレス",
+    "invalid": "アドレス形式が正しくない (EVM 0x + 40 hex) か、チェックサムが一致しません。",
+    "register": "登録",
+    "copyTitle": { "success": "コピーしました", "error": "コピーに失敗" },
+    "copyDesc": {
+      "success": "出金アドレスをクリップボードにコピーしました。",
+      "error": "クリップボードへのアクセスに失敗しました。"
+    },
+    "errors": {
+      "needOtp": "まずアカウントで Google OTP を有効にしてください。",
+      "invalid": "ウォレットアドレスが無効です。",
+      "otpWrong": "OTP コードが正しくありません。",
+      "http": "保存に失敗しました (HTTP {status})"
+    },
+    "toast": {
+      "success": "出金ウォレットアドレスを保存しました。"
+    }
+  },
+  "password": {
+    "title": "パスワード変更",
+    "badge": "セキュリティ",
+    "current": "現在のパスワード",
+    "new": "新しいパスワード",
+    "newConfirm": "新しいパスワード（確認）",
+    "mismatch": "パスワードが一致しません。",
+    "submit": "パスワードを変更",
+    "submitting": "処理中…",
+    "toast": {
+      "successTitle": "完了",
+      "errorTitle": "エラー",
+      "errorFallback": "パスワード変更に失敗しました",
+      "successDesc": "パスワードを変更しました。"
+    },
+    "errors": {
+      "validation": "検証に失敗しました",
+      "http": "変更に失敗しました (HTTP {status})"
+    },
+    "rules": {
+      "len": "8〜18 文字",
+      "letter": "英字を含む",
+      "digit": "数字を含む",
+      "upper": "大文字を 1 文字以上含む",
+      "symbol": "記号を 1 文字以上含む"
+    }
+  }
+}

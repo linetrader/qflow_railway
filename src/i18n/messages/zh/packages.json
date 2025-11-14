@@ -1,0 +1,75 @@
+{
+  "errors": {
+    "fetchFailed": "获取套餐信息失败（HTTP {status}）",
+    "network": "网络错误",
+    "unknown": "未知错误"
+  },
+  "loading": {
+    "fetching": "正在加载套餐信息…",
+    "retry": "重试"
+  },
+  "purchase": {
+    "title": "购买套餐",
+    "cards": {
+      "usdtBalance": "我的 USDT 余额",
+      "totalUSD": "总金额",
+      "estQai": "预计 QAI 数量",
+      "estNoPrice": "预计（无价格）"
+    },
+    "input": {
+      "label": "输入 {name} 的数量",
+      "placeholder": "数量"
+    },
+    "warn": {
+      "insufficient": "余额不足：需要 {need} USDT / 拥有 {have} USDT — 超出 {over} USDT"
+    },
+    "cta": {
+      "buy": "购买",
+      "processing": "处理中…",
+      "title": "购买",
+      "titleDisabled": "请输入数量。"
+    },
+    "rateLine": {
+      "label": "* 换算汇率：",
+      "value": "1 QAI = {price} USDT",
+      "none": "无 QAI 价格（需要价格数据）"
+    },
+    "notice": "已购买的套餐将转换为 QAI，服务结束后可提取。"
+  },
+  "toast": {
+    "cannotBuy": {
+      "title": "无法购买",
+      "insufficient": "余额不足。请充值 USDT 或调整数量。",
+      "inputQty": "请输入数量。"
+    },
+    "summary": {
+      "title": "购买摘要",
+      "line": "- {name}: {units} × ${price} = ${subtotal}",
+      "totalWithRate": "- 总计: ${total}（≈ {estQai} QAI @ {price} USDT/QAI）",
+      "totalNoRate": "- 总计: ${total}（无 QAI 价格）"
+    },
+    "success": { "title": "购买完成" },
+    "fail": {
+      "title": "购买失败",
+      "http": "购买失败（HTTP {status}）",
+      "generic": "购买过程中发生错误。"
+    }
+  },
+  "history": {
+    "title": "我的套餐购买记录",
+    "totalBadge": "总计: ${total}",
+    "head": {
+      "title": "条目",
+      "date": "时间",
+      "amount": "金额",
+      "status": "状态"
+    },
+    "row": {
+      "title": "{kind} 套餐 · {units}"
+    },
+    "empty": "没有可显示的记录。",
+    "loadMore": "加载更多",
+    "loading": "加载中…",
+    "allLoaded": "所有记录已加载。"
+  }
+}

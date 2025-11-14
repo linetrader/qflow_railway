@@ -1,0 +1,20 @@
+/* src/styles/components/dataDisplay/stats/halloween.css */
+@layer components {
+  [data-theme="halloween"] .stats {
+    /* 경계선/포커스 투명도 카라멜라떼와 동일 값으로 통일 */
+    --stats-border-color: rgba(255, 255, 255, 0.6);
+    --stats-focus-ring: rgba(255, 255, 255, 0.12);
+
+    /* 다크 톤 배경만 유지(원하시면 값 조정) */
+    background: linear-gradient(
+      180deg,
+      rgba(12, 12, 16, 0.98) 0%,
+      rgba(12, 12, 16, 0.94) 100%
+    );
+  }
+
+  /* 타이틀 컬러도 카라멜라떼와 동일한 규칙으로 */
+  [data-theme="halloween"] .stats-title {
+    color: hsl(var(--p) / 0.9);
+  }
+}

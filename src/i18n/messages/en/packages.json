@@ -1,0 +1,75 @@
+{
+  "errors": {
+    "fetchFailed": "Failed to fetch packages (HTTP {status})",
+    "network": "Network error",
+    "unknown": "Unknown error"
+  },
+  "loading": {
+    "fetching": "Loading package information…",
+    "retry": "Retry"
+  },
+  "purchase": {
+    "title": "Purchase Packages",
+    "cards": {
+      "usdtBalance": "My USDT Balance",
+      "totalUSD": "Total Amount",
+      "estQai": "Estimated QAI",
+      "estNoPrice": "Estimate (No Price)"
+    },
+    "input": {
+      "label": "Enter quantity for {name}",
+      "placeholder": "Quantity"
+    },
+    "warn": {
+      "insufficient": "Insufficient balance: Need {need} USDT / Have {have} USDT — Over by {over} USDT"
+    },
+    "cta": {
+      "buy": "Buy",
+      "processing": "Processing…",
+      "title": "Buy",
+      "titleDisabled": "Enter quantity."
+    },
+    "rateLine": {
+      "label": "* Conversion rate:",
+      "value": "1 QAI = {price} USDT",
+      "none": "No QAI price (price data required)"
+    },
+    "notice": "Purchased packages are converted to QAI and can be withdrawn after service termination."
+  },
+  "toast": {
+    "cannotBuy": {
+      "title": "Cannot Purchase",
+      "insufficient": "Balance is insufficient. Top up USDT or adjust quantities.",
+      "inputQty": "Enter quantity."
+    },
+    "summary": {
+      "title": "Purchase Summary",
+      "line": "- {name}: {units} × ${price} = ${subtotal}",
+      "totalWithRate": "- Total: ${total} (≈ {estQai} QAI @ {price} USDT/QAI)",
+      "totalNoRate": "- Total: ${total} (No QAI price)"
+    },
+    "success": { "title": "Purchase Complete" },
+    "fail": {
+      "title": "Purchase Failed",
+      "http": "Purchase failed (HTTP {status})",
+      "generic": "An error occurred during purchase."
+    }
+  },
+  "history": {
+    "title": "My Package Purchases",
+    "totalBadge": "Total: ${total}",
+    "head": {
+      "title": "Item",
+      "date": "Date",
+      "amount": "Amount",
+      "status": "Status"
+    },
+    "row": {
+      "title": "{kind} package · {units}"
+    },
+    "empty": "No records to display.",
+    "loadMore": "Load more",
+    "loading": "Loading…",
+    "allLoaded": "All records have been loaded."
+  }
+}

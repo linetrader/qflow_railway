@@ -1,0 +1,32 @@
+// prisma/schema/Contact.prisma
+// 링크의 상위 분류(예: SUPPORT = 고객센터 외부 문의 링크 묶음, SOCIAL = 일반 소셜 채널 등)
+model ContactLinkType {
+  code        String  @id // 예: "SUPPORT", "SOCIAL"
+  name        String // 표시명
+  description String?
+  isEnabled   Boolean @default(true)
+
+  links ContactLink[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// 실제 노출할 개별 링크(예: 텔레그램, 카카오톡, 이메일 등)
+model ContactLink {
+  id       String          @id @default(cuid())
+  typeCode String
+  type     ContactLinkType @relation(fields: [typeCode], references: [code], onDelete: Restrict)
+
+  label     String // 예: "텔레그램", "카카오톡", "이메일"
+  url       String // https://, mailto:, tel: 등
+  isActive  Boolean @default(true) // 노출 on/off
+  sortOrder Int     @default(0) // 정렬 우선순위(오름차순)
+  icon      String? // (선택) 아이콘 키/URL
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([typeCode, label]) // 같은 타입 내 라벨 중복 방지
+  @@index([typeCode, isActive, sortOrder])
+}

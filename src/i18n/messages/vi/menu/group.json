@@ -1,0 +1,39 @@
+{
+  "title": "Cấp độ & Tổng nhóm của tôi",
+  "badges": {
+    "myLevel": "Cấp độ của tôi: {level}"
+  },
+  "labels": {
+    "levelUnknown": "Không rõ",
+    "group": "Nhóm",
+    "salesVolumeUSDT": "Tổng doanh số (USDT)",
+    "dailyAllowanceDFT": "Hạn mức mỗi ngày (DFT)"
+  },
+  "columns": {
+    "group": "Nhóm",
+    "salesVolumeUSDT": "Tổng doanh số (USDT)",
+    "dailyAllowanceDFT": "Hạn mức mỗi ngày (DFT)",
+    "updatedAt": "Cập nhật"
+  },
+  "notes": {
+    "groupNo": "* groupNo là số khe trong tuyến dưới trực tiếp của bạn."
+  },
+  "loading": {
+    "badge": "Đang tải…",
+    "ariaProgress": "Đang tải"
+  },
+  "empty": {
+    "noData": "Không có dữ liệu tổng hợp nhóm.",
+    "noGroups": "Không có tổng hợp nhóm để hiển thị."
+  },
+  "toast": {
+    "errorTitle": "Lỗi"
+  },
+  "errors": {
+    "fetchFailed": "Lấy thông tin đội nhóm thất bại (HTTP {status})",
+    "network": "Lỗi mạng"
+  },
+  "aria": {
+    "mobileList": "Danh sách tổng hợp nhóm"
+  }
+}

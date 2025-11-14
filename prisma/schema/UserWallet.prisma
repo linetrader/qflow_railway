@@ -1,0 +1,25 @@
+// prisma/schema/UserWallet.prisma (인덱스 추가 예시)
+model UserWallet {
+  id              String  @id @default(cuid())
+  userId          String  @unique
+  depositAddress  String?
+  withdrawAddress String?
+
+  balanceUSDT Decimal @default(0) @db.Decimal(38, 18)
+  balanceQAI  Decimal @default(0) @db.Decimal(38, 18)
+  balanceDFT  Decimal @default(0) @db.Decimal(38, 18)
+
+  depositPrivCipher String? @db.Text
+  depositPrivIv     String?
+  depositPrivTag    String?
+  depositKeyAlg     String? @default("aes-256-gcm")
+  depositKeyVersion Int?    @default(1)
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 주소 역조회 성능을 위한 보강
+  @@index([depositAddress])
+  @@index([withdrawAddress])
+}

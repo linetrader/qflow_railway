@@ -1,0 +1,25 @@
+{
+  "header": {
+    "title": "공지사항"
+  },
+  "actions": {
+    "refresh": "새로고침",
+    "home": "홈"
+  },
+  "table": {
+    "colTitle": "제목",
+    "colPublishedAt": "발행일"
+  },
+  "messages": {
+    "loadingList": "불러오는 중…",
+    "emptyList": "발행된 공지가 없습니다.",
+    "errorPrefix": "오류:"
+  },
+  "detail": {
+    "title": "공지 보기",
+    "close": "닫기",
+    "loading": "불러오는 중…",
+    "publishedLabel": "발행",
+    "placeholder": "목록에서 공지를 선택하면 아래에 표시됩니다."
+  }
+}

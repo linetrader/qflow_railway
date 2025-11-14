@@ -1,0 +1,35 @@
+{
+  "announcements": {
+    "title": "お知らせ",
+    "seeAll": "すべて表示",
+    "empty": "表示するお知らせはありません。",
+    "badge": { "notice": "告知" }
+  },
+  "assets": {
+    "title": "資産",
+    "usdt": { "name": "テザー" },
+    "qai": { "name": "QuantixAI" },
+    "dft": { "name": "DeepFlow" }
+  },
+  "reward": {
+    "title": "報酬",
+    "recentCount": "直近 {count} 件",
+    "empty": "報酬履歴がありません。"
+  },
+  "purchase": {
+    "title": "購入履歴",
+    "recentCount": "直近 {count} 件",
+    "empty": "購入履歴がありません。",
+    "unitPriceInline": "({price} /個)"
+  },
+  "table": {
+    "head": {
+      "subject": "項目",
+      "date": "日付",
+      "amount": "金額"
+    }
+  },
+  "loading": { "homeData": "データを読み込んでいます…" },
+  "error": { "generic": "エラーが発生しました：{message}" },
+  "guest": { "notice": "ログインすると詳細を確認できます。" }
+}

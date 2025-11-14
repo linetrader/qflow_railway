@@ -1,0 +1,33 @@
+{
+  "title": "Self Sign-up",
+  "submit": "Sign Up",
+  "loading": "Loading…",
+  "loginRequired": {
+    "title": "Login Required",
+    "desc": "This page is only accessible while logged in to lock your own referral code.",
+    "cta": "Go to Login"
+  },
+  "note": {
+    "fixedRef": "On this page, the referrer is <b>{username}</b>’s code (<code>{ref}</code>) and is <b>fixed automatically</b>."
+  },
+  "errors": {
+    "unexpected": "Unexpected response (HTTP {status})",
+    "network": "Network error",
+    "usernameTaken": "Username is already taken.",
+    "emailTaken": "Email is already taken.",
+    "referrerNotFound": "Referrer not found.",
+    "sponsorNotFound": "Sponsor not found.",
+    "countryCodeInvalid": "Country code must be 2 letters (e.g., KR, US).",
+    "countryNotFound": "Country not found.",
+    "validation": "Please check your inputs.",
+    "server": "A server error occurred."
+  },
+  "toast": {
+    "success": {
+      "title": "Sign-up Complete",
+      "desc": "Your account has been created successfully."
+    },
+    "fail": { "title": "Sign-up Failed", "desc": "Please check your inputs." },
+    "network": { "title": "Network Error", "desc": "Please try again later." }
+  }
+}

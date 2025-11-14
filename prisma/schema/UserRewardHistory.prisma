@@ -1,0 +1,21 @@
+// prisma/schema/UserRewardHistory.prisma
+model UserRewardHistory {
+  id        String  @id @default(cuid())
+  userId    String
+  name      String
+  amountDFT Decimal @db.Decimal(38, 18)
+  note      String?
+
+  // ✅ 원장 FK(옵션): 마이닝/커미션 등 출처를 연결
+  miningPayoutId String?       @unique
+  miningPayout   MiningPayout? @relation(fields: [miningPayoutId], references: [id], onDelete: SetNull)
+
+  // 기존 커미션 역참조 유지
+  ReferralCommission ReferralCommission[]
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@index([userId, createdAt])
+  @@index([userId, name, createdAt])
+}

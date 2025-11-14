@@ -1,0 +1,19 @@
+/* src/styles/components/dataDisplay/stats/caramellatte.css */
+@layer components {
+  [data-theme="caramellatte"] .stats {
+    /* 외곽선 색상: 0.60 (list와 동일) */
+    --stats-border-color: rgba(87, 71, 46, 0.6);
+    --stats-focus-ring: rgba(87, 71, 46, 0.12);
+
+    /* 배경은 유지 */
+    background: linear-gradient(
+      180deg,
+      rgba(255, 253, 248, 0.92) 0%,
+      rgba(255, 255, 255, 0.96) 100%
+    );
+  }
+
+  [data-theme="caramellatte"] .stats-title {
+    color: hsl(var(--p) / 0.9);
+  }
+}

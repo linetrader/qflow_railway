@@ -1,0 +1,35 @@
+{
+  "announcements": {
+    "title": "공지사항",
+    "seeAll": "전체 보기",
+    "empty": "표시할 공지사항이 없습니다.",
+    "badge": { "notice": "공지" }
+  },
+  "assets": {
+    "title": "자산",
+    "usdt": { "name": "테더" },
+    "qai": { "name": "QuantixAI" },
+    "dft": { "name": "DeepFlow" }
+  },
+  "reward": {
+    "title": "보상",
+    "recentCount": "최근 {count}개",
+    "empty": "보상 내역이 없습니다."
+  },
+  "purchase": {
+    "title": "구매 이력",
+    "recentCount": "최근 {count}개",
+    "empty": "구매 이력이 없습니다.",
+    "unitPriceInline": "({price} /개)"
+  },
+  "table": {
+    "head": {
+      "subject": "항목",
+      "date": "일자",
+      "amount": "금액"
+    }
+  },
+  "loading": { "homeData": "데이터를 불러오는 중…" },
+  "error": { "generic": "오류가 발생했습니다: {message}" },
+  "guest": { "notice": "로그인하면 상세 정보를 확인할 수 있습니다." }
+}

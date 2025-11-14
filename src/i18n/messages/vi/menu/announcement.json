@@ -1,0 +1,25 @@
+{
+  "header": {
+    "title": "Thông báo"
+  },
+  "actions": {
+    "refresh": "Làm mới",
+    "home": "Trang chủ"
+  },
+  "table": {
+    "colTitle": "Tiêu đề",
+    "colPublishedAt": "Ngày đăng"
+  },
+  "messages": {
+    "loadingList": "Đang tải…",
+    "emptyList": "Chưa có thông báo nào được đăng.",
+    "errorPrefix": "Lỗi:"
+  },
+  "detail": {
+    "title": "Xem thông báo",
+    "close": "Đóng",
+    "loading": "Đang tải…",
+    "publishedLabel": "Đăng",
+    "placeholder": "Chọn một thông báo từ danh sách để hiển thị tại đây."
+  }
+}

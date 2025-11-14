@@ -1,0 +1,148 @@
+/* theme/azureluxe/alert.css */
+@layer components {
+  /* ───── Variant color bridge (optional overrides) ───── */
+  :root[data-theme="azureluxe"] {
+    --alert-info-color: var(--color-primary) !important;
+    --alert-success-color: var(--success) !important;
+    --alert-warning-color: var(--warning) !important;
+    --alert-error-color: var(--error) !important;
+  }
+
+  /* ───── Base (Component) ───── */
+  [data-theme="azureluxe"] .alert {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+    border-radius: var(--radius-lg) !important;
+    padding: 0.75rem 0.875rem !important;
+    border: 1px solid var(--line-soft) !important;
+    background: var(--surface-2) !important;
+    color: var(--fg) !important;
+  }
+
+  /* ───── Style modifiers ───── */
+  /* outline style */
+  [data-theme="azureluxe"] .alert.alert-outline {
+    background: transparent !important;
+    border-color: var(--line-strong) !important;
+    color: var(--fg) !important;
+  }
+
+  /* dash outline style */
+  [data-theme="azureluxe"] .alert.alert-dash {
+    background: transparent !important;
+    border-style: dashed !important;
+    border-color: var(--line-strong) !important;
+    color: var(--fg) !important;
+  }
+
+  /* soft style (neutral soft, color variants will override below) */
+  [data-theme="azureluxe"] .alert.alert-soft {
+    border-color: rgba(34, 119, 255, 0.22) !important;
+    background: rgba(34, 119, 255, 0.08) !important;
+    color: var(--fg) !important;
+  }
+
+  /* ───── Direction modifiers ───── */
+  [data-theme="azureluxe"] .alert.alert-vertical {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  [data-theme="azureluxe"] .alert.alert-horizontal {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  /* ───── Color variants ───── */
+  /* info (primary azure) */
+  [data-theme="azureluxe"] .alert.alert-info {
+    border-color: rgba(34, 119, 255, 0.35) !important;
+    background: rgba(34, 119, 255, 0.1) !important;
+    color: var(--alert-info-color) !important;
+  }
+  [data-theme="azureluxe"] .alert.alert-info.alert-outline {
+    background: transparent !important;
+    border-color: var(--alert-info-color) !important;
+    color: var(--alert-info-color) !important;
+  }
+  [data-theme="azureluxe"] .alert.alert-info.alert-dash {
+    background: transparent !important;
+    border-style: dashed !important;
+    border-color: var(--alert-info-color) !important;
+    color: var(--alert-info-color) !important;
+  }
+  [data-theme="azureluxe"] .alert.alert-info.alert-soft {
+    border-color: rgba(34, 119, 255, 0.25) !important;
+    background: rgba(34, 119, 255, 0.12) !important;
+    color: var(--alert-info-color) !important;
+  }
+
+  /* success (green) */
+  [data-theme="azureluxe"] .alert.alert-success {
+    border-color: rgba(12, 180, 120, 0.35) !important;
+    background: rgba(12, 180, 120, 0.1) !important;
+    color: var(--alert-success-color) !important;
+  }
+  [data-theme="azureluxe"] .alert.alert-success.alert-outline {
+    background: transparent !important;
+    border-color: var(--alert-success-color) !important;
+    color: var(--alert-success-color) !important;
+  }
+  [data-theme="azureluxe"] .alert.alert-success.alert-dash {
+    background: transparent !important;
+    border-style: dashed !important;
+    border-color: var(--alert-success-color) !important;
+    color: var(--alert-success-color) !important;
+  }
+  [data-theme="azureluxe"] .alert.alert-success.alert-soft {
+    border-color: rgba(12, 180, 120, 0.25) !important;
+    background: rgba(12, 180, 120, 0.12) !important;
+    color: var(--alert-success-color) !important;
+  }
+
+  /* warning (amber) */
+  [data-theme="azureluxe"] .alert.alert-warning {
+    border-color: rgba(245, 158, 11, 0.35) !important;
+    background: rgba(245, 158, 11, 0.12) !important;
+    color: var(--alert-warning-color) !important;
+  }
+  [data-theme="azureluxe"] .alert.alert-warning.alert-outline {
+    background: transparent !important;
+    border-color: var(--alert-warning-color) !important;
+    color: var(--alert-warning-color) !important;
+  }
+  [data-theme="azureluxe"] .alert.alert-warning.alert-dash {
+    background: transparent !important;
+    border-style: dashed !important;
+    border-color: var(--alert-warning-color) !important;
+    color: var(--alert-warning-color) !important;
+  }
+  [data-theme="azureluxe"] .alert.alert-warning.alert-soft {
+    border-color: rgba(245, 158, 11, 0.25) !important;
+    background: rgba(245, 158, 11, 0.16) !important;
+    color: var(--alert-warning-color) !important;
+  }
+
+  /* error (red) */
+  [data-theme="azureluxe"] .alert.alert-error {
+    border-color: rgba(220, 38, 38, 0.35) !important;
+    background: rgba(220, 38, 38, 0.1) !important;
+    color: var(--alert-error-color) !important;
+  }
+  [data-theme="azureluxe"] .alert.alert-error.alert-outline {
+    background: transparent !important;
+    border-color: var(--alert-error-color) !important;
+    color: var(--alert-error-color) !important;
+  }
+  [data-theme="azureluxe"] .alert.alert-error.alert-dash {
+    background: transparent !important;
+    border-style: dashed !important;
+    border-color: var(--alert-error-color) !important;
+    color: var(--alert-error-color) !important;
+  }
+  [data-theme="azureluxe"] .alert.alert-error.alert-soft {
+    border-color: rgba(220, 38, 38, 0.25) !important;
+    background: rgba(220, 38, 38, 0.12) !important;
+    color: var(--alert-error-color) !important;
+  }
+}

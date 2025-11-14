@@ -1,0 +1,20 @@
+{
+  "header": {
+    "back": "Back",
+    "preparing": "Preparing your deposit address…",
+    "errorRetry": "Retry",
+    "network": "Network: {name}"
+  },
+  "qr": {
+    "generating": "Generating QR…",
+    "none": "No QR",
+    "preparingAddr": "Preparing address…",
+    "noAddr": "No address",
+    "hint": "Scan the QR with your wallet app to input the address."
+  },
+  "address": {
+    "label": "Wallet Address",
+    "copied": "Address copied.",
+    "clipboardUnsupported": "Clipboard unsupported. Please copy the address manually."
+  }
+}

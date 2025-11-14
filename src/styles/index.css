@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* daisyUI 플러그인 선언 (필요한 테마만 쓰려면 배열로 제한 가능) */
+/* @plugin "daisyui" {
+  themes: all;
+} */
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, caramellatte, halloween,
+    azureluxe;
+}
+
+/* 공통 토큰(선택) */
+/* @import "./tokens.css"; */
+
+/* 컴포넌트 단위 임포트 */
+@import "./components/dataDisplay/alert/_index.css";
+@import "./components/dataDisplay/card/_index.css";
+@import "./components/dataDisplay/list/_index.css";
+@import "./components/dataDisplay/stats/_index.css";
+@import "./components/dataDisplay/table/_index.css";
+
+@import "./themes/index.css";

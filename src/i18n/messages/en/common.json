@@ -1,0 +1,87 @@
+{
+  "app": { "name": "QFlow" },
+  "nav": {
+    "wallet": "Wallet",
+    "packages": "Packages",
+    "home": "Home",
+    "reward": "Rewards",
+    "selfSignup": "Self Sign-up",
+    "signup": "Sign up",
+    "homeAria": "Go to Home",
+    "bottomAria": "Bottom navigation"
+  },
+  "auth": {
+    "login": "Log in",
+    "signup": "Sign up",
+    "logout": "Log out"
+  },
+  "menu": {
+    "open": "Open menu",
+    "drawerAria": "Side menu",
+    "title": "Menu",
+    "settings": "Settings",
+    "account": "Account",
+    "public": {
+      "overview": "Project Overview",
+      "announcement": "Announcements",
+      "event": "Events",
+      "help": "Help Center"
+    },
+    "private": {
+      "group": "Sales Group Status",
+      "ranking": "Sales Ranking",
+      "account": "Account Settings Status"
+    }
+  },
+  "header": {
+    "menu": "Menu",
+    "close": "Close",
+    "admin": "Admin",
+    "login": "Log in",
+    "signup": "Sign up",
+    "account": "My Account",
+    "settings": "Settings"
+  },
+  "footer": {
+    "tabs": {
+      "wallet": "Wallet",
+      "pkg": "Packages",
+      "home": "Home",
+      "reward": "Rewards",
+      "selfSignup": "Sign up"
+    }
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "copy": "Copy",
+    "confirm": "Confirm",
+    "back": "Back"
+  },
+  "status": {
+    "loading": "Loading…",
+    "error": "Error",
+    "success": "Done"
+  },
+  "hints": {
+    "copied": "Copied",
+    "copyFailed": "Copy failed",
+    "copiedDesc": "Copied to clipboard.",
+    "copyFailedDesc": "Failed to access the clipboard."
+  },
+  "theme": {
+    "toggleAria": "Toggle theme"
+  },
+  "admin": {
+    "title": "Admin"
+  },
+  "account": {
+    "my": "My Account"
+  },
+  "errors": {
+    "network": "Network error",
+    "validation": "Validation failed",
+    "unknown": "Unknown error"
+  }
+}

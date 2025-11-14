@@ -1,0 +1,112 @@
+{
+  "page": {
+    "title": "我的账户",
+    "loading": "正在加载个人资料…",
+    "badgeLoading": "加载中",
+    "badgeError": "错误",
+    "errors": {
+      "http": "加载个人资料失败 (HTTP {status})",
+      "generic": "加载个人资料失败"
+    }
+  },
+  "info": {
+    "title": "账户信息",
+    "username": "用户名",
+    "email": "邮箱",
+    "name": "姓名",
+    "country": "国家/地区",
+    "fields": {
+      "username": "用户名",
+      "email": "邮箱",
+      "name": "姓名",
+      "country": "国家/地区"
+    }
+  },
+  "referral": {
+    "title": "注册推荐链接",
+    "badge": "推荐人",
+    "copyToastTitle": { "success": "已复制", "error": "复制失败" },
+    "copyToastDesc": {
+      "success": "推荐链接已复制到剪贴板。",
+      "error": "无法访问剪贴板。"
+    }
+  },
+  "otp": {
+    "title": "Google OTP",
+    "status": { "enabled": "已启用", "disabled": "未启用" },
+    "scan": "使用 Google Authenticator 扫描",
+    "secretLabel": "密钥（备份）",
+    "codeLabel": "验证码 (6 位) ",
+    "register": "注册 OTP",
+    "note": "注册后请妥善保管备份码。",
+    "dialog": {
+      "title": "OTP 验证",
+      "desc": "请输入验证器 App 中显示的 6 位验证码。",
+      "inputLabel": "验证码",
+      "cancel": "取消",
+      "confirm": "确认",
+      "confirming": "正在确认…",
+      "need6": "请输入 6 位验证码"
+    },
+    "toast": {
+      "successTitle": "成功",
+      "errorTitle": "错误",
+      "successDesc": "OTP 已启用。",
+      "errorDesc": "注册 OTP 失败。"
+    },
+    "errors": {
+      "init": "初始化 OTP 失败",
+      "initHttp": "初始化 OTP 失败 (HTTP {status})",
+      "registerHttp": "注册 OTP 失败 (HTTP {status})"
+    }
+  },
+  "wallet": {
+    "title": "提现钱包地址",
+    "status": { "registered": "已注册", "unregistered": "未注册" },
+    "addressLabel": "钱包地址",
+    "placeholder": "以 0x 开头的地址",
+    "invalid": "地址格式无效 (EVM 0x + 40 位十六进制），或校验和不匹配。",
+    "register": "注册",
+    "copyTitle": { "success": "已复制", "error": "复制失败" },
+    "copyDesc": {
+      "success": "提现地址已复制到剪贴板。",
+      "error": "无法访问剪贴板。"
+    },
+    "errors": {
+      "needOtp": "请先在账户中启用 Google OTP。",
+      "invalid": "钱包地址无效。",
+      "otpWrong": "OTP 验证码不正确。",
+      "http": "保存失败 (HTTP {status})"
+    },
+    "toast": {
+      "success": "提现钱包地址已保存。"
+    }
+  },
+  "password": {
+    "title": "更改密码",
+    "badge": "安全",
+    "current": "当前密码",
+    "new": "新密码",
+    "newConfirm": "确认新密码",
+    "mismatch": "两次输入的密码不一致。",
+    "submit": "更改密码",
+    "submitting": "处理中…",
+    "toast": {
+      "successTitle": "成功",
+      "errorTitle": "错误",
+      "errorFallback": "更改密码失败",
+      "successDesc": "密码已更改。"
+    },
+    "errors": {
+      "validation": "校验失败",
+      "http": "更改失败 (HTTP {status})"
+    },
+    "rules": {
+      "len": "8~18 个字符",
+      "letter": "包含字母",
+      "digit": "包含数字",
+      "upper": "至少 1 个大写字母",
+      "symbol": "至少 1 个符号"
+    }
+  }
+}

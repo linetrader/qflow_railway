@@ -1,0 +1,65 @@
+/* src/styles/components/dataDisplay/table/_index.css */
+@layer components {
+  table.table {
+    /* ✅ 외곽선/프레임 */
+    border: 1px solid var(--table-border-color, hsl(var(--bc) / 0.22));
+    box-shadow: none;
+    background-clip: padding-box;
+
+    width: 100%;
+    font-size: 0.875rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    /* 내부 구분선만 사용 — 기본값 포함 */
+    --table-divider-color: var(--table-border-color, hsl(var(--bc) / 0.22));
+  }
+
+  table.table:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--table-focus-ring, hsl(var(--bc) / 0.15));
+  }
+
+  table.table thead tr,
+  table.table tbody tr,
+  table.table tfoot tr {
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  table.table thead th,
+  table.table tbody td,
+  table.table tfoot th,
+  table.table tfoot td {
+    border: 0;
+    border-bottom: 1px solid var(--table-divider-color, hsl(var(--bc) / 0.22)) !important;
+    padding: 0.75rem 1rem;
+    background-color: var(--table-row-bg, transparent);
+    background-clip: padding-box;
+  }
+
+  table.table tbody tr:last-child td,
+  table.table tfoot tr:last-child th,
+  table.table tfoot tr:last-child td {
+    border-bottom-width: 0 !important;
+  }
+
+  table.table thead th {
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--table-header-fg, hsl(var(--bc) / 0.8));
+    background-color: var(--table-header-bg, transparent);
+    text-align: left;
+    border-top: 0 !important;
+  }
+
+  table.table.table-striped tbody tr:nth-child(odd) td {
+    background-color: var(--table-stripe-bg, hsl(var(--b2) / 0.25));
+  }
+  table.table.table-hover tbody tr:hover td {
+    background-color: var(--table-row-hover-bg, hsl(var(--b2) / 0.35));
+  }
+}
+
+@import "./caramellatte.css";
+@import "./halloween.css";

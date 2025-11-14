@@ -1,0 +1,39 @@
+{
+  "title": "My Level & Group Totals",
+  "badges": {
+    "myLevel": "My Level: {level}"
+  },
+  "labels": {
+    "levelUnknown": "Unknown",
+    "group": "Group",
+    "salesVolumeUSDT": "Sales Total (USDT)",
+    "dailyAllowanceDFT": "Daily Allowance (DFT)"
+  },
+  "columns": {
+    "group": "Group",
+    "salesVolumeUSDT": "Sales Total (USDT)",
+    "dailyAllowanceDFT": "Daily Allowance (DFT)",
+    "updatedAt": "Updated"
+  },
+  "notes": {
+    "groupNo": "* groupNo is the slot number in your direct-downline."
+  },
+  "loading": {
+    "badge": "Loading…",
+    "ariaProgress": "Loading"
+  },
+  "empty": {
+    "noData": "No group summary data.",
+    "noGroups": "No group summaries to display."
+  },
+  "toast": {
+    "errorTitle": "Error"
+  },
+  "errors": {
+    "fetchFailed": "Failed to fetch team info (HTTP {status})",
+    "network": "Network error"
+  },
+  "aria": {
+    "mobileList": "Group summary list"
+  }
+}

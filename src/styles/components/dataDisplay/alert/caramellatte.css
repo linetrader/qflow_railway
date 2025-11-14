@@ -1,0 +1,19 @@
+@layer components {
+  [data-theme="caramellatte"] .alert {
+    --alert-border-color: rgba(87, 71, 46, 0.6);
+    --alert-focus-ring: rgba(87, 71, 46, 0.12);
+    --alert-bg: rgba(255, 253, 248, 0.95);
+    --alert-fg: hsl(var(--bc));
+    /* 배경 질감(선택) */
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 253, 248, 0.9) 0%,
+      rgba(255, 255, 255, 0.96) 100%
+    );
+    background-blend-mode: overlay;
+  }
+
+  [data-theme="caramellatte"] .alert-title {
+    color: hsl(var(--p) / 0.9);
+  }
+}

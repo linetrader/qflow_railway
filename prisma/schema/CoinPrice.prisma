@@ -1,0 +1,14 @@
+// prisma/schema/CoinPrice.prisma
+model CoinPrice {
+  id          String   @id @default(cuid())
+  // token(enum) → tokenCode + FK
+  tokenCode   String
+  price       Decimal  @db.Decimal(38, 18)
+  withdrawFee Decimal  @default(0) @db.Decimal(38, 18)
+  createdAt   DateTime @default(now())
+
+  // 관계
+  token Token @relation(fields: [tokenCode], references: [code], onDelete: Restrict)
+
+  @@index([tokenCode, createdAt(sort: Desc)])
+}
