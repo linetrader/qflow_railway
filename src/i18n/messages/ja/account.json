@@ -25,7 +25,10 @@
   "referral": {
     "title": "会員登録リファラルリンク",
     "badge": "紹介者",
-    "copyToastTitle": { "success": "コピーしました", "error": "コピーに失敗" },
+    "copyToastTitle": {
+      "success": "コピーしました",
+      "error": "コピーに失敗"
+    },
     "copyToastDesc": {
       "success": "リファラルリンクをクリップボードにコピーしました。",
       "error": "クリップボードへのアクセスに失敗しました。"
@@ -33,7 +36,10 @@
   },
   "otp": {
     "title": "Google OTP",
-    "status": { "enabled": "有効", "disabled": "無効" },
+    "status": {
+      "enabled": "有効",
+      "disabled": "無効"
+    },
     "scan": "Google Authenticator でスキャン",
     "secretLabel": "シークレット (バックアップ)",
     "codeLabel": "認証アプリのコード (6桁)",
@@ -62,12 +68,18 @@
   },
   "wallet": {
     "title": "出金ウォレットアドレス",
-    "status": { "registered": "登録済み", "unregistered": "未登録" },
+    "status": {
+      "registered": "登録済み",
+      "unregistered": "未登録"
+    },
     "addressLabel": "ウォレットアドレス",
     "placeholder": "0x で始まるアドレス",
     "invalid": "アドレス形式が正しくない (EVM 0x + 40 hex) か、チェックサムが一致しません。",
     "register": "登録",
-    "copyTitle": { "success": "コピーしました", "error": "コピーに失敗" },
+    "copyTitle": {
+      "success": "コピーしました",
+      "error": "コピーに失敗"
+    },
     "copyDesc": {
       "success": "出金アドレスをクリップボードにコピーしました。",
       "error": "クリップボードへのアクセスに失敗しました。"
@@ -80,6 +92,15 @@
     },
     "toast": {
       "success": "出金ウォレットアドレスを保存しました。"
+    },
+    "dialog": {
+      "title": "OTP 認証",
+      "desc": "Google Authenticator アプリに表示されている 6 桁のコードを入力してください。",
+      "inputLabel": "OTP コード（6桁）",
+      "cancel": "キャンセル",
+      "confirm": "確認",
+      "confirming": "確認中…",
+      "need6": "6 桁すべてを入力してください。"
     }
   },
   "password": {

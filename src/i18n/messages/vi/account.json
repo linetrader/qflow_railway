@@ -36,7 +36,10 @@
   },
   "otp": {
     "title": "Google OTP",
-    "status": { "enabled": "Đã bật", "disabled": "Chưa bật" },
+    "status": {
+      "enabled": "Đã bật",
+      "disabled": "Chưa bật"
+    },
     "scan": "Quét bằng Google Authenticator",
     "secretLabel": "Mã bí mật (sao lưu)",
     "codeLabel": "Mã ứng dụng (6 số)",
@@ -65,12 +68,18 @@
   },
   "wallet": {
     "title": "Địa chỉ ví rút tiền",
-    "status": { "registered": "Đã đăng ký", "unregistered": "Chưa đăng ký" },
+    "status": {
+      "registered": "Đã đăng ký",
+      "unregistered": "Chưa đăng ký"
+    },
     "addressLabel": "Địa chỉ ví",
     "placeholder": "Địa chỉ bắt đầu bằng 0x",
     "invalid": "Địa chỉ không hợp lệ (EVM 0x + 40 hex) hoặc sai checksum.",
     "register": "Đăng ký",
-    "copyTitle": { "success": "Đã sao chép", "error": "Sao chép thất bại" },
+    "copyTitle": {
+      "success": "Đã sao chép",
+      "error": "Sao chép thất bại"
+    },
     "copyDesc": {
       "success": "Địa chỉ ví rút tiền đã được sao chép.",
       "error": "Không thể truy cập bộ nhớ tạm."
@@ -83,6 +92,15 @@
     },
     "toast": {
       "success": "Đã lưu địa chỉ ví rút tiền."
+    },
+    "dialog": {
+      "title": "Xác thực OTP",
+      "desc": "Nhập mã 6 số từ ứng dụng Google Authenticator.",
+      "inputLabel": "Mã OTP (6 số)",
+      "cancel": "Hủy",
+      "confirm": "Xác nhận",
+      "confirming": "Đang xác nhận…",
+      "need6": "Vui lòng nhập đủ 6 số."
     }
   },
   "password": {

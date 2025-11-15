@@ -25,7 +25,10 @@
   "referral": {
     "title": "Sign-up Referral Link",
     "badge": "Referrer",
-    "copyToastTitle": { "success": "Copied", "error": "Copy failed" },
+    "copyToastTitle": {
+      "success": "Copied",
+      "error": "Copy failed"
+    },
     "copyToastDesc": {
       "success": "The referral link has been copied to the clipboard.",
       "error": "Failed to access the clipboard."
@@ -33,7 +36,10 @@
   },
   "otp": {
     "title": "Google OTP",
-    "status": { "enabled": "Enabled", "disabled": "Disabled" },
+    "status": {
+      "enabled": "Enabled",
+      "disabled": "Disabled"
+    },
     "scan": "Scan with Google Authenticator",
     "secretLabel": "Secret (backup)",
     "codeLabel": "Authenticator code (6 digits)",
@@ -62,12 +68,18 @@
   },
   "wallet": {
     "title": "Withdrawal Wallet Address",
-    "status": { "registered": "Registered", "unregistered": "Not registered" },
+    "status": {
+      "registered": "Registered",
+      "unregistered": "Not registered"
+    },
     "addressLabel": "Wallet address",
     "placeholder": "Address starting with 0x",
     "invalid": "Invalid address format (EVM 0x + 40 hex) or checksum mismatch.",
     "register": "Register",
-    "copyTitle": { "success": "Copied", "error": "Copy failed" },
+    "copyTitle": {
+      "success": "Copied",
+      "error": "Copy failed"
+    },
     "copyDesc": {
       "success": "The withdrawal address has been copied to the clipboard.",
       "error": "Failed to access the clipboard."
@@ -80,6 +92,15 @@
     },
     "toast": {
       "success": "Withdrawal wallet address has been saved."
+    },
+    "dialog": {
+      "title": "OTP Verification",
+      "desc": "Enter the 6-digit code from your Google Authenticator app.",
+      "inputLabel": "OTP code (6 digits)",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "confirming": "Confirming…",
+      "need6": "Please enter all 6 digits."
     }
   },
   "password": {

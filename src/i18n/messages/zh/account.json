@@ -25,7 +25,10 @@
   "referral": {
     "title": "注册推荐链接",
     "badge": "推荐人",
-    "copyToastTitle": { "success": "已复制", "error": "复制失败" },
+    "copyToastTitle": {
+      "success": "已复制",
+      "error": "复制失败"
+    },
     "copyToastDesc": {
       "success": "推荐链接已复制到剪贴板。",
       "error": "无法访问剪贴板。"
@@ -33,7 +36,10 @@
   },
   "otp": {
     "title": "Google OTP",
-    "status": { "enabled": "已启用", "disabled": "未启用" },
+    "status": {
+      "enabled": "已启用",
+      "disabled": "未启用"
+    },
     "scan": "使用 Google Authenticator 扫描",
     "secretLabel": "密钥（备份）",
     "codeLabel": "验证码 (6 位) ",
@@ -62,12 +68,18 @@
   },
   "wallet": {
     "title": "提现钱包地址",
-    "status": { "registered": "已注册", "unregistered": "未注册" },
+    "status": {
+      "registered": "已注册",
+      "unregistered": "未注册"
+    },
     "addressLabel": "钱包地址",
     "placeholder": "以 0x 开头的地址",
     "invalid": "地址格式无效 (EVM 0x + 40 位十六进制），或校验和不匹配。",
     "register": "注册",
-    "copyTitle": { "success": "已复制", "error": "复制失败" },
+    "copyTitle": {
+      "success": "已复制",
+      "error": "复制失败"
+    },
     "copyDesc": {
       "success": "提现地址已复制到剪贴板。",
       "error": "无法访问剪贴板。"
@@ -80,6 +92,15 @@
     },
     "toast": {
       "success": "提现钱包地址已保存。"
+    },
+    "dialog": {
+      "title": "OTP 验证",
+      "desc": "请输入 Google 身份验证器应用中的 6 位验证码。",
+      "inputLabel": "OTP 验证码（6 位）",
+      "cancel": "取消",
+      "confirm": "确认",
+      "confirming": "正在确认…",
+      "need6": "请完整输入 6 位验证码。"
     }
   },
   "password": {
