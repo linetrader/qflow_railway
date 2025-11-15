@@ -1,10 +1,14 @@
 // src/worker/mining/payout.ts
-
 import { prisma } from "@/lib/prisma";
 import { MiningRewardKind, Prisma } from "@/generated/prisma";
 import { Decimal } from "./types";
 
-/** 날짜 롤오버 필요 여부(UTC) */
+/**
+ * UserRewardSummary 날짜 롤오버 필요 여부(UTC 기준)
+ * - summaryDate: 기존 calculatedAt
+ * - now: 현재 시간
+ * - 날짜가 바뀌었으면 true (year/month/date 중 하나라도 변경)
+ */
 function needRoll(summaryDate: Date | null | undefined, now: Date) {
   if (!summaryDate) return true;
   const a = new Date(summaryDate);
@@ -16,7 +20,18 @@ function needRoll(summaryDate: Date | null | undefined, now: Date) {
   );
 }
 
-/** (TX) UserRewardSummary 업데이트(일자 롤오버 포함) */
+/**
+ * (TX 내부용) UserRewardSummary 업데이트 + 일자 롤오버 처리
+ *
+ * - summary가 없으면 신규 행 생성
+ * - 날짜가 바뀌었으면:
+ *   - yesterdayDFT ← 기존 todayDFT
+ *   - todayDFT ← delta
+ *   - totalDFT += delta
+ * - 날짜가 같으면:
+ *   - todayDFT += delta
+ *   - totalDFT += delta
+ */
 async function bumpRewardSummaryTx(
   tx: Prisma.TransactionClient,
   userId: string,
@@ -38,6 +53,7 @@ async function bumpRewardSummaryTx(
   }
 
   if (needRoll(summary.calculatedAt, now)) {
+    // 날짜가 바뀐 경우: today → yesterday로 롤오버
     const yesterday = summary.todayDFT as unknown as Decimal;
     await tx.userRewardSummary.update({
       where: { userId },
@@ -49,6 +65,7 @@ async function bumpRewardSummaryTx(
       },
     });
   } else {
+    // 같은 날짜: today, total에 delta 누적
     await tx.userRewardSummary.update({
       where: { userId },
       data: {
@@ -59,7 +76,9 @@ async function bumpRewardSummaryTx(
   }
 }
 
-/** 외부 호출용: 비TX 버전(호환성) */
+/**
+ * 외부에서 호출하는 요약 업데이트 함수(트랜잭션 래퍼)
+ */
 export async function bumpRewardSummary(
   userId: string,
   delta: Decimal,
@@ -70,7 +89,12 @@ export async function bumpRewardSummary(
   );
 }
 
-/** (TX) UserRewardHistory 추가 */
+/**
+ * (TX 내부용) UserRewardHistory 1건 추가
+ *
+ * - kind 에 따라 name을 문자열로 매핑
+ * - refLevel / awardLevel / splitCount 는 note에 CSV 형태로 저장
+ */
 async function addRewardHistoryTx(
   tx: Prisma.TransactionClient,
   args: {
@@ -109,7 +133,9 @@ async function addRewardHistoryTx(
   });
 }
 
-/** 외부 호출용: 비TX 버전(호환성) */
+/**
+ * 외부에서 호출하는 이력 추가 함수(트랜잭션 래퍼)
+ */
 export async function addRewardHistory(args: {
   userId: string;
   kind: MiningRewardKind;
@@ -122,7 +148,12 @@ export async function addRewardHistory(args: {
   return prisma.$transaction((tx) => addRewardHistoryTx(tx, args));
 }
 
-/** UserReferralStats: baseDailyDft를 소스 유저에 1회 반영 */
+/**
+ * UserReferralStats: baseDailyDft 를 소스 유저의 총 daily allowance 에 1회 반영
+ *
+ * - stats가 없으면 신규 생성
+ * - 있으면 totalDailyAllowanceDFT += baseDailyDft
+ */
 export async function bumpReferralStatsForSource(
   sourceUserId: string,
   baseDailyDft: Decimal
@@ -152,7 +183,10 @@ export async function bumpReferralStatsForSource(
   });
 }
 
-/** MiningPayout 생성 + 요약/이력 갱신 (원자적) */
+/**
+ * MiningPayout 생성 + UserRewardSummary / History 갱신을
+ * 하나의 트랜잭션 안에서 원자적으로 수행
+ */
 export async function createPayout(args: {
   runId: string;
   sourceUserId: string;
@@ -166,6 +200,7 @@ export async function createPayout(args: {
   splitCount?: number;
 }) {
   await prisma.$transaction(async (tx) => {
+    // 1) MiningPayout 레코드 생성
     const payout = await tx.miningPayout.create({
       data: {
         runId: args.runId,
@@ -182,8 +217,10 @@ export async function createPayout(args: {
       select: { id: true },
     });
 
+    // 2) 요약 테이블 업데이트
     await bumpRewardSummaryTx(tx, args.beneficiaryUserId, args.amountDFT);
 
+    // 3) 이력 테이블 추가
     await addRewardHistoryTx(tx, {
       userId: args.beneficiaryUserId,
       kind: args.kind,

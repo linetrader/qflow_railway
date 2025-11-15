@@ -28,7 +28,8 @@ dayjs.extend(timezone);
 // ---- loop utils ----
 import { setTimeout as sleep } from "node:timers/promises";
 
-const LOOP_INTERVAL_MS = 10_000; // 러너 기본 폴링 간격(정책상 고정; 필요 시 DB에서 가져오도록 확장 가능)
+// 러너 기본 폴링 간격(10초) — 정책상 고정값, 필요시 DB 기반으로 확장 가능
+const LOOP_INTERVAL_MS = 10_000;
 
 // dayjs().day(): 0(일)~6(토)
 function isAllowedDOW(mask: number, d: dayjs.Dayjs) {
@@ -36,6 +37,12 @@ function isAllowedDOW(mask: number, d: dayjs.Dayjs) {
   return (mask & bit) !== 0;
 }
 
+/**
+ * 스케줄 종류(kind)에 따른 nextRunAt 계산
+ * - INTERVAL: intervalMinutes 후
+ * - DAILY: timezone + dailyAtMinutes + daysOfWeekMask 기반
+ *   (utils/schedule.ts 와 동일한 로직을 runner쪽에도 포함)
+ */
 function computeNextRunAt(args: {
   kind: MiningScheduleKind;
   intervalMinutes?: number | null;
@@ -54,7 +61,7 @@ function computeNextRunAt(args: {
   // DAILY
   const tz = args.timezone ?? "Asia/Seoul";
   const mins = Number(args.dailyAtMinutes ?? 0); // 0~1439
-  const mask = args.daysOfWeekMask ?? 127; // 기본: 매일
+  const mask = args.daysOfWeekMask ?? 127; // 기본: 매일 허용
 
   const cur = now.tz(tz);
   const targetToday = cur
@@ -66,16 +73,21 @@ function computeNextRunAt(args: {
   if (targetToday.isAfter(cur) && isAllowedDOW(mask, targetToday)) {
     return targetToday.toDate();
   }
-  // 내일부터 허용 요일 탐색 (최대 8일 루프)
+  // 내일부터 허용 요일 탐색 (최대 8일)
   for (let i = 1; i <= 8; i++) {
     const cand = targetToday.add(i, "day");
     if (isAllowedDOW(mask, cand)) return cand.toDate();
   }
-  // 이론상 도달 X
+  // 방어적 fallback
   return targetToday.add(1, "day").toDate();
 }
 
-/** 실행 대상 스케줄 수집: DB에서 due만 선별 (형식 안전 필터 포함) */
+/**
+ * 실행 대상 스케줄 수집:
+ * - isActive = true
+ * - nextRunAt <= now
+ * - kind별로 필수 필드(intervalMinutes / dailyAtMinutes) 유효성까지 where에서 필터
+ */
 export async function collectDueSchedules(now: Date) {
   return prisma.miningSchedule.findMany({
     where: {
@@ -90,7 +102,12 @@ export async function collectDueSchedules(now: Date) {
   });
 }
 
-/** 런 시작(정책 스냅샷) + 동시 실행 가드 + nextRunAt 계산 */
+/**
+ * 런 시작:
+ * - miningSchedule + policy 스냅샷을 기반으로 miningRun 생성
+ * - 이미 RUNNING 상태의 run 이 있는 스케줄이면 에러로 막음 (동시 실행 가드)
+ * - schedule.kind 에 따라 nextRunAt 재계산해서 스케줄 업데이트
+ */
 export async function startRun(scheduleId: string) {
   return prisma.$transaction(async (tx) => {
     const schedule = await tx.miningSchedule.findUnique({
@@ -103,7 +120,7 @@ export async function startRun(scheduleId: string) {
     });
     if (!schedule) throw new Error("Schedule not found");
 
-    // 동일 스케줄에서 RUNNING이 이미 있으면 차단
+    // 동일 스케줄에서 RUNNING 이 이미 존재하면 중복 실행 차단
     const running = await tx.miningRun.findFirst({
       where: { scheduleId, status: MiningRunStatus.RUNNING },
       select: { id: true },
@@ -111,6 +128,7 @@ export async function startRun(scheduleId: string) {
     if (running)
       throw new Error("A run is already in progress for this schedule");
 
+    // 정책 스냅샷을 캡처한 MiningRun 생성
     const run = await tx.miningRun.create({
       data: {
         scheduleId: schedule.id,
@@ -125,7 +143,7 @@ export async function startRun(scheduleId: string) {
       },
     });
 
-    // ✅ kind에 따라 nextRunAt 재계산
+    // kind 에 따라 nextRunAt 재계산
     const next = computeNextRunAt({
       kind: schedule.kind as MiningScheduleKind,
       intervalMinutes: schedule.intervalMinutes ?? null,
@@ -147,7 +165,12 @@ export async function startRun(scheduleId: string) {
   });
 }
 
-/** 런 실행(지급 생성) */
+/**
+ * 하나의 run 을 실제로 실행:
+ * - userPackage 기준으로 각 유저의 baseDaily (노드 수량 × 패키지 dailyDftAmount) 계산
+ * - SELF, COMPANY, MLM 추천, 레벨 보너스를 순서대로 지급
+ * - 마지막에 run 상태를 COMPLETED 로 마킹
+ */
 export async function executeRun(runId: string) {
   const run = await prisma.miningRun.findUnique({
     where: { id: runId },
@@ -165,7 +188,7 @@ export async function executeRun(runId: string) {
 
   const policy = run.policy;
 
-  // 보유자 로드: 필요한 필드만 select
+  // 현재 패키지 보유자 로드 (필요 필드만 select)
   const holders = await prisma.userPackage.findMany({
     select: {
       userId: true,
@@ -177,7 +200,12 @@ export async function executeRun(runId: string) {
     where: { quantity: { gt: 0 } },
   });
 
-  // userId → { level, items[] } 집계
+  /**
+   * userId 별로
+   * - level
+   * - 각 패키지별 daily/qty 리스트
+   * 로 집계한 맵
+   */
   const byUser = new Map<
     string,
     { level: number; items: { daily: Decimal; pkgId: string; qty: number }[] }
@@ -198,15 +226,20 @@ export async function executeRun(runId: string) {
     }
   }
 
-  // 불변 계산(전 유저 공통)
+  // ── 전 유저 공통으로 한 번만 계산하면 되는 값들 ──
+
+  // 추천 플랜에서 레벨별 퍼센트를 합산
   const referralTotalPct = policy.mlmReferralPlan.levels.reduce(
     (acc, x) => acc.add(x.percent as unknown as Decimal),
     new Decimal(0)
   );
+
+  // MLM 총 퍼센트 (스냅샷 값)
   const mlmTotalPct =
     (run.snapMlmPct as unknown as Decimal) ??
     new Decimal((run.snapMlmPct as unknown as number) ?? 0);
 
+  // 레벨 보너스 cap% 맵
   const levelThresholds = buildLevelThresholds(
     policy.levelBonusPlan.items.map((x) => ({
       level: x.level,
@@ -214,52 +247,56 @@ export async function executeRun(runId: string) {
     }))
   );
 
-  // 체인 캐시
+  // upline 체인 캐시 (referral / level bonus 모두 공용)
   const uplineCache = new Map<string, UplineNode[]>();
 
+  // ── 유저별 루프 ──
   for (const [userId, info] of byUser.entries()) {
+    // 해당 유저의 전체 baseDaily 합산
     const baseDaily = info.items.reduce(
       (acc, x) => acc.add(x.daily),
       new Decimal(0)
     );
     if (baseDaily.lte(0)) continue;
 
-    // 소스 유저 통계
+    // 소스 유저 referral 통계(allowance) 업데이트
     await bumpReferralStatsForSource(userId, baseDaily);
 
     const selfAmt = baseDaily.mul(run.snapSelfPct).div(100);
     const companyAmt = baseDaily.mul(run.snapCompanyPct).div(100);
 
-    // 레벨 보너스 퍼센트 = MLM 총퍼센트 − 추천 퍼센트 합 (음수 방지)
+    // 레벨 보너스 퍼센트 = MLM 총퍼센트 − 추천 퍼센트 합
     let levelBonusPct = mlmTotalPct.sub(referralTotalPct);
     if (levelBonusPct.lt(0)) levelBonusPct = new Decimal(0);
 
-    // 고정 레벨 풀
+    // 레벨 보너스용 고정 풀 (baseDaily × levelBonusPct)
     const levelPoolFixed = baseDaily.mul(levelBonusPct).div(100);
 
-    // SELF
+    const totalQty = info.items.reduce((a, b) => a + b.qty, 0);
+
+    // SELF 지급
     await createPayout({
       runId: run.id,
       sourceUserId: userId,
       beneficiaryUserId: userId,
       amountDFT: selfAmt,
       baseDailyDft: baseDaily,
-      userNodeQuantity: info.items.reduce((a, b) => a + b.qty, 0),
+      userNodeQuantity: totalQty,
       kind: MiningRewardKind.SELF,
     });
 
-    // COMPANY
+    // COMPANY 지급
     await createPayout({
       runId: run.id,
       sourceUserId: userId,
       beneficiaryUserId: policy.companyUserId,
       amountDFT: companyAmt,
       baseDailyDft: baseDaily,
-      userNodeQuantity: info.items.reduce((a, b) => a + b.qty, 0),
+      userNodeQuantity: totalQty,
       kind: MiningRewardKind.COMPANY,
     });
 
-    // 추천: ★ 모든 상위 포함 체인 사용
+    // 추천 보너스: 모든 상위 포함 체인 사용
     const uplineForReferral = await getUplineChainAllCached(
       userId,
       uplineCache
@@ -275,7 +312,7 @@ export async function executeRun(runId: string) {
       })),
     });
 
-    // 레벨 보너스: ★ 단조 규칙 체인 사용 + sourceLevel 필터
+    // 레벨 보너스: 단조 체인 + sourceLevel 기반
     if (levelPoolFixed.gt(0)) {
       const uplineForLevel = await getUplineChainMonotonicCached(
         userId,
@@ -292,6 +329,7 @@ export async function executeRun(runId: string) {
     }
   }
 
+  // run 완료 처리
   await prisma.miningRun.update({
     where: { id: run.id },
     data: { status: MiningRunStatus.COMPLETED, finishedAt: new Date() },
@@ -299,9 +337,16 @@ export async function executeRun(runId: string) {
 }
 
 /* ────────────────────────────────────────────────────────────────────
-   러너 루프 (tick → startRun → executeRun)
+   러너 상위 API (tick / runOnce / runLoop)
    ──────────────────────────────────────────────────────────────────── */
 
+/**
+ * 한 번의 tick:
+ * - collectDueSchedules(now) 로 due 스케줄 찾기
+ * - 각 스케줄에 대해 startRun → executeRun 순서로 실행
+ * - 동시에 여러 프로세스가 있을 수 있으므로 startRun 에서 경합 에러 발생 시 catch 후 스킵
+ * @returns 실행된 run 개수
+ */
 export async function tick(now = new Date()) {
   const due = await collectDueSchedules(now);
   if (!due.length) return 0;
@@ -313,19 +358,27 @@ export async function tick(now = new Date()) {
       await executeRun(run.id);
       runCount++;
     } catch (e) {
-      // 동시에 여러 프로세스가 startRun 경합 시, "in progress" 에러 가능 → 스킵
+      // 여러 프로세스가 같은 스케줄을 잡으면 "이미 RUNNING" 에러가 날 수 있음 → 경고만 찍고 무시
       console.error("[mining] schedule run error:", e);
     }
   }
   return runCount;
 }
 
+/**
+ * 즉시 한 번만 tick 을 수행하는 헬퍼
+ */
 export async function runOnce() {
   const n = await tick(new Date());
   console.log(`[mining] runOnce: executed ${n} run(s)`);
 }
 
+// 종료 플래그
 let stopping = false;
+
+/**
+ * SIGINT / SIGTERM 를 받아서 graceful stop 을 위한 플래그 세팅
+ */
 function installSignalHandlers() {
   const onStop = (sig: string) => {
     console.log(`[mining:runner] ${sig} received -> graceful stop`);
@@ -335,18 +388,22 @@ function installSignalHandlers() {
   process.on("SIGTERM", () => onStop("SIGTERM"));
 }
 
-/** 무한 루프: due 스케줄을 폴링 */
+/**
+ * 무한 루프:
+ * - intervalMs 마다 sleep 후 runOnce 호출
+ * - stopping 플래그가 세트되면 루프 탈출
+ * - 시작 직후에는 바로 runOnce 하지 않고 먼저 대기하여 "무조건 1회 실행" 현상 방지
+ */
 export async function runLoop(intervalMs = LOOP_INTERVAL_MS) {
   installSignalHandlers();
   console.log(`[mining:runner] loop start (interval=${intervalMs}ms)`);
 
-  // ✅ 시작 직후에는 실행하지 않고 먼저 대기 -> "무조건 1회 실행" 방지
   while (!stopping) {
     await sleep(intervalMs);
     if (stopping) break;
 
     try {
-      await runOnce(); // runOnce는 due 스케줄이 없으면 아무것도 안 함
+      await runOnce(); // due 가 없으면 아무것도 안 함
     } catch (e) {
       console.error("[mining:runner] runOnce error:", e);
     }
@@ -359,6 +416,12 @@ export async function runLoop(intervalMs = LOOP_INTERVAL_MS) {
    직접 실행 시 main() 진입
    (node/tsx src/worker/mining/runner.ts)
    ──────────────────────────────────────────────────────────────────── */
+
+/**
+ * CLI 인자 처리:
+ * - "--once" 가 있으면 runOnce 만 실행 후 종료
+ * - 없으면 runLoop 시작
+ */
 async function main() {
   const args = process.argv.slice(2);
   const forceOnce = args.includes("--once");
@@ -369,10 +432,15 @@ async function main() {
   await runLoop();
 }
 
-/** ★ ESM 안전한 “직접 실행” 가드 */
+/**
+ * ★ ESM 환경에서 "직접 실행" 여부를 판별하는 가드
+ *
+ * - process.argv[1] (엔트리 파일 경로)를 file:// URL 로 바꾼 뒤
+ *   현재 모듈의 import.meta.url 과 비교
+ * - 일치하면 이 파일이 엔트리 → main() 실행
+ */
 const directRun = (() => {
   try {
-    // Node ESM에서 현재 프로세스가 실행한 엔트리 파일과 이 모듈의 url을 비교
     const entry = process.argv[1];
     if (!entry) return false;
     const entryUrl = new URL(`file://${entry}`).href;
